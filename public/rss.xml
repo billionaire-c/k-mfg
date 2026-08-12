@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>K-Manufacturing</title>
+    <link>https://example.com/</link>
+    <description>한국 제조업에 관한 기록과 인사이트</description>
+    <language>ko</language>
+    <!-- 게시글이 쌓이면 여기에 item을 추가합니다. -->
+  </channel>
+</rss>

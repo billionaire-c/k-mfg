@@ -1,0 +1,108 @@
+@import 'tailwindcss';
+
+/* 토글 버튼의 html.dark 클래스 기준으로 dark: 유틸 적용 */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont,
+    system-ui, sans-serif;
+  --color-ink: #1a1a1a;
+  --color-ink-muted: #5c5c5c;
+  --color-ink-faint: #8a8a8a;
+  --color-line: #e6e6e4;
+  --color-surface: #f7f7f5;
+  --color-paper: #fafaf8;
+  --color-accent: #2c4a3e;
+  --color-footer: #0f0f0f;
+  --color-footer-muted: #a8a8a4;
+  --color-footer-line: #2a2a2a;
+}
+
+html.dark {
+  --color-ink: #f2f2f0;
+  --color-ink-muted: #b3b3af;
+  --color-ink-faint: #7e7e7a;
+  --color-line: #2c2c2a;
+  --color-surface: #1a1a18;
+  --color-paper: #111110;
+  --color-accent: #9fc4b4;
+  --color-footer: #050505;
+  --color-footer-muted: #9a9a96;
+  --color-footer-line: #ffffff;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: var(--font-sans);
+    color: var(--color-ink);
+    background-color: var(--color-paper);
+    background-image:
+      radial-gradient(ellipse 80% 50% at 50% -20%, rgba(44, 74, 62, 0.05), transparent),
+      linear-gradient(180deg, var(--color-paper) 0%, var(--color-surface) 100%);
+    background-attachment: fixed;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transition: background-color 0.25s ease, color 0.25s ease;
+  }
+
+  html.dark body {
+    background-image:
+      radial-gradient(ellipse 80% 50% at 50% -20%, rgba(159, 196, 180, 0.06), transparent),
+      linear-gradient(180deg, #111110 0%, #161614 100%);
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  ::selection {
+    background: rgba(44, 74, 62, 0.15);
+  }
+
+  html.dark ::selection {
+    background: rgba(159, 196, 180, 0.25);
+  }
+
+  input,
+  textarea,
+  select,
+  button {
+    font: inherit;
+  }
+}
+
+@layer utilities {
+  .fade-up {
+    animation: fade-up 0.7s ease both;
+  }
+
+  .fade-up-delay-1 {
+    animation-delay: 0.12s;
+  }
+
+  .fade-up-delay-2 {
+    animation-delay: 0.24s;
+  }
+
+  .fade-up-delay-3 {
+    animation-delay: 0.36s;
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
