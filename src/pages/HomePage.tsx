@@ -4,14 +4,13 @@ import { InsightList } from '../components/InsightList'
 import { SectionHeading } from '../components/SectionHeading'
 import { SocialLinks } from '../components/SocialLinks'
 import { YoutubeEmbed } from '../components/YoutubeEmbed'
-import { useContent } from '../context/ContentContext'
 import { cardNewsSamples } from '../data/cardNewsSamples'
 import { insightSamples } from '../data/insightSamples'
 import { site } from '../data/placeholders'
+import { youtubeSamples } from '../data/youtubeSamples'
 
 export function HomePage() {
-  const { getByKind } = useContent()
-  const youtube = getByKind('youtube').slice(0, 2)
+  const youtube = youtubeSamples.slice(0, 2)
 
   return (
     <div className="mx-auto max-w-3xl px-5 md:px-6">
