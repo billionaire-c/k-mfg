@@ -179,18 +179,19 @@ export function MapPage() {
           : null}
       </p>
 
-      <div className="mb-4 flex flex-col gap-3 sm:flex-row">
+      <div className="mb-4 flex flex-col gap-3 sm:flex-row sm:items-stretch">
         <input
-          type="search"
+          type="text"
+          inputMode="search"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           placeholder="기업명·주소 검색"
-          className="h-10 flex-1 rounded border border-line bg-paper px-3 text-[14px] text-ink outline-none focus:border-ink"
+          className="box-border min-h-11 w-full flex-1 appearance-none rounded border border-line bg-paper px-3 py-2.5 text-[16px] leading-normal text-ink outline-none focus:border-ink md:text-[14px]"
         />
         <select
           value={region}
           onChange={(e) => setRegion(e.target.value)}
-          className="h-10 rounded border border-line bg-paper px-3 text-[14px] text-ink outline-none focus:border-ink sm:w-44"
+          className="box-border min-h-11 w-full appearance-none rounded border border-line bg-paper px-3 py-2.5 text-[16px] leading-normal text-ink outline-none focus:border-ink sm:w-44 md:text-[14px]"
         >
           {regions.map((r) => (
             <option key={r} value={r}>
