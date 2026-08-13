@@ -11,6 +11,18 @@ export type YoutubeSample = {
  */
 export const youtubeSamples: YoutubeSample[] = [
   {
+    id: 'yt-skhynix-us-listing-2026',
+    title: '한국 기업은 왜 미국 증시에 갈까 - SK하이닉스',
+    date: '2026.08.13',
+    embedUrl: 'https://youtube.com/shorts/mbZMOmvadDY',
+  },
+  {
+    id: 'yt-hanwha-ocean-weld-robot-2026',
+    title: '용접 로봇은 어떻게 레일 없이 벽을 오를까 — 한화오션',
+    date: '2026.08.13',
+    embedUrl: 'https://youtube.com/shorts/ycxBgTzbkHk',
+  },
+  {
     id: 'yt-hanon-heat-pump-2026',
     title: '전기차는 왜 겨울에 열을 만들지 않고 옮길까 - 한온시스템',
     date: '2026.08.13',
