@@ -12,6 +12,7 @@ import { CardNewsPage } from './pages/CardNewsPage'
 import { GuestbookPage } from './pages/GuestbookPage'
 import { HomePage } from './pages/HomePage'
 import { InsightsPage } from './pages/InsightsPage'
+import { MapPage } from './pages/MapPage'
 import { SearchPage } from './pages/SearchPage'
 import { YoutubePage } from './pages/YoutubePage'
 
@@ -29,6 +30,7 @@ export default function App() {
                 <Route path="card-news/:id" element={<CardNewsDetailPage />} />
                 <Route path="insights" element={<InsightsPage />} />
                 <Route path="youtube" element={<YoutubePage />} />
+                <Route path="map" element={<MapPage />} />
                 <Route path="guestbook" element={<GuestbookPage />} />
                 <Route path="search" element={<SearchPage />} />
                 <Route path="admin/login" element={<AdminLoginPage />} />

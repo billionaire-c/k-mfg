@@ -75,6 +75,26 @@ export function HomePage() {
           </Link>
         </div>
       </section>
+
+      <section className="py-8 md:py-10">
+        <SectionHeading
+          eyebrow="Map"
+          title="공급기업 지도"
+          moreHref="/map"
+        />
+        <p className="max-w-xl text-[14px] leading-relaxed text-ink-muted">
+          공공데이터 기반 스마트공장 공급기업 위치를 지도에서 검색·확인할 수
+          있습니다.
+        </p>
+        <div className="mt-5">
+          <Link
+            to="/map"
+            className="text-[13px] text-ink-muted transition-colors hover:text-accent"
+          >
+            지도 보기 »
+          </Link>
+        </div>
+      </section>
     </div>
   )
 }

@@ -15,6 +15,9 @@ dist-ssr
 .env.*
 !.env.example
 
+# 지오코딩 중간 파일 (최종 결과는 public/data/suppliers.json)
+data/raw/geocode-progress.json
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

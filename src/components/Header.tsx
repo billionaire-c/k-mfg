@@ -7,6 +7,7 @@ const navItems = [
   { to: '/card-news', label: '카드뉴스' },
   { to: '/insights', label: '인사이트' },
   { to: '/youtube', label: '유튜브' },
+  { to: '/map', label: '지도' },
   { to: '/guestbook', label: '방명록' },
   { to: '/search', label: '찾기' },
 ] as const
