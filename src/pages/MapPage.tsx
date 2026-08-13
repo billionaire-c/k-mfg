@@ -168,8 +168,12 @@ export function MapPage() {
       <h1 className="mb-2 text-2xl font-semibold tracking-tight text-ink md:text-3xl">
         스마트공장 공급기업 지도
       </h1>
+      <p className="mb-2 inline-block border border-line px-2 py-1 text-[11px] tracking-[0.06em] text-ink-muted">
+        공공데이터 기반
+      </p>
       <p className="mb-6 max-w-2xl text-[14px] leading-relaxed text-ink-muted">
-        공공데이터 기반 스마트공장 공급기업 위치를 지도에서 찾아볼 수 있습니다.
+        공공데이터포털에 공개된 스마트공장 공급기업 현황을 바탕으로, 위치를
+        지도에서 찾아볼 수 있습니다.
         {meta
           ? ` 좌표 변환 ${meta.totalMapped.toLocaleString()}곳 / 원본 ${meta.totalRaw.toLocaleString()}곳.`
           : null}

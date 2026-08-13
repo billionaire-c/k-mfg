@@ -82,9 +82,12 @@ export function HomePage() {
           title="공급기업 지도"
           moreHref="/map"
         />
+        <p className="mb-2 inline-block border border-line px-2 py-1 text-[11px] tracking-[0.06em] text-ink-muted">
+          공공데이터 기반
+        </p>
         <p className="max-w-xl text-[14px] leading-relaxed text-ink-muted">
-          공공데이터 기반 스마트공장 공급기업 위치를 지도에서 검색·확인할 수
-          있습니다.
+          공공데이터포털 자료를 활용한 스마트공장 공급기업 위치를 지도에서
+          검색·확인할 수 있습니다.
         </p>
         <div className="mt-5">
           <Link
