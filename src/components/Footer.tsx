@@ -3,10 +3,26 @@ import { site } from '../data/placeholders'
 import { Logo } from './Logo'
 
 const footerLinks = [
-  { label: 'YOUTUBE', href: site.links.youtube, external: true },
-  { label: 'INSTAGRAM', href: site.links.instagram, external: true },
-  { label: 'RSS', href: '/rss.xml', external: true },
-  { label: '오너 로그인', href: '/admin/login', external: false },
+  {
+    label: 'YOUTUBE',
+    href: site.links.youtube,
+    kind: 'external' as const,
+  },
+  {
+    label: 'INSTAGRAM',
+    href: '',
+    kind: 'soon' as const,
+  },
+  {
+    label: 'RSS',
+    href: '/rss.xml',
+    kind: 'external' as const,
+  },
+  {
+    label: '오너 로그인',
+    href: '/admin/login',
+    kind: 'route' as const,
+  },
 ]
 
 export function Footer() {
@@ -20,8 +36,30 @@ export function Footer() {
             <nav aria-label="푸터 링크">
               <ul className="flex flex-wrap gap-x-5 gap-y-2 text-[11px] tracking-[0.12em] text-footer-muted uppercase md:justify-end">
                 {footerLinks.map((link) => (
-                  <li key={link.label}>
-                    {link.external ? (
+                  <li key={link.label} className="relative">
+                    {link.kind === 'soon' ? (
+                      <button
+                        type="button"
+                        title="준비중입니다."
+                        onClick={(e) => {
+                          e.preventDefault()
+                          window.alert('준비중입니다.')
+                        }}
+                        className="group transition-colors hover:text-white"
+                      >
+                        {link.label}
+                        <span className="pointer-events-none absolute top-full left-1/2 z-10 mt-1 hidden -translate-x-1/2 whitespace-nowrap rounded bg-white px-2 py-1 text-[10px] tracking-normal text-black normal-case group-hover:block">
+                          준비중입니다.
+                        </span>
+                      </button>
+                    ) : link.kind === 'route' ? (
+                      <Link
+                        to={link.href}
+                        className="transition-colors hover:text-white"
+                      >
+                        {link.label}
+                      </Link>
+                    ) : (
                       <a
                         href={link.href}
                         className="transition-colors hover:text-white"
@@ -31,13 +69,6 @@ export function Footer() {
                       >
                         {link.label}
                       </a>
-                    ) : (
-                      <Link
-                        to={link.href}
-                        className="transition-colors hover:text-white"
-                      >
-                        {link.label}
-                      </Link>
                     )}
                   </li>
                 ))}

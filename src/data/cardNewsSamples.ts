@@ -37,8 +37,237 @@ export type CardNewsSample = {
   slides: CardSlide[]
 }
 
-/** 자체 요약 카드뉴스 샘플 — 원문 링크 포함 */
+/**
+ * 자체 요약 카드뉴스 — 원문 링크 포함
+ * 최신 글이 배열 앞쪽. 매일 추가 시 기존 항목은 유지하고 앞에 push.
+ */
 export const cardNewsSamples: CardNewsSample[] = [
+  {
+    id: 'cn-aw2026-ax-ops',
+    title: 'AW 2026이 보여준 전환: 설비 개선 → 운영 혁신',
+    date: '2026.08.13',
+    summary:
+      'Automation World 2026에서 드러난 제조 AX 흐름을 요약합니다. 참관 규모·정책 과제 수·AI 위치를 ‘운영’ 관점으로 정리했습니다.',
+    topic: '스마트공장 · 전시',
+    cover: '/card-news/cn-ai-factory-max-2026.png',
+    sources: [
+      {
+        name: '헬로티',
+        url: 'https://www.hellot.net/news/article.html?no=111251',
+      },
+    ],
+    slides: [
+      {
+        layout: 'cover',
+        eyebrow: 'Card News 01',
+        title: '설비보다\n운영이\n이슈다',
+        body: 'Automation World 2026 · 제조 AX',
+        image: '/card-news/slide-factory-line.png',
+      },
+      {
+        layout: 'split',
+        eyebrow: '현장 규모',
+        title: '역대 최대\n약 8만 명',
+        body: '24개국 500개사 · 2,300부스\n전년 대비 참관객 약 +15%',
+        image: '/card-news/slide-control-room.png',
+        metrics: [
+          { label: '참관객', value: '8만+', tone: 'up', arrow: 'up' },
+          { label: '참가 기업', value: '500', tone: 'neutral' },
+        ],
+      },
+      {
+        layout: 'text',
+        eyebrow: '정책 신호',
+        title: '2026 지원 과제\n약 450개',
+        body: '자율형 공장·제조 AI 특화·상생형 AI 트랙으로\n스마트공장 보급을 넘어 AX·자율제조로 확장',
+        bars: [
+          { label: '자율형 공장', value: 30, display: '30개', tone: 'up' },
+          { label: 'AI 특화 SF', value: 400, display: '400개', tone: 'up' },
+          { label: '상생형 AI', value: 20, display: '20개', tone: 'neutral' },
+        ],
+      },
+      {
+        layout: 'split',
+        eyebrow: '격차',
+        title: '관심은 높은데\n현장 안착은 더딤',
+        body: 'OECD 추정 기준 한국 AI 도입률은 아직 제한적\n중소기업 AI 활용도 주요국 대비 낮은 편',
+        image: '/card-news/slide-data-panel.png',
+        metrics: [
+          { label: '韓 중소 AI', value: '31%', tone: 'warn', arrow: 'down' },
+          { label: '독일 중소 AI', value: '51%', tone: 'up' },
+        ],
+      },
+      {
+        layout: 'split',
+        eyebrow: '전시 메시지',
+        title: 'AI는 모니터가 아니라\n운영기술(OT)',
+        body: '예지보전·품질·안전·보안까지\n현장 과제를 푸는 실행 계층으로 이동',
+        image: '/card-news/slide-welding-robot.png',
+        highlight: '※ 세부 수치·인용은 원문에서 확인',
+      },
+      {
+        layout: 'text',
+        eyebrow: '한 줄 정리',
+        title: '다음 경쟁은\n통합 운영',
+        body: '단품 성능보다 센서–데이터–판단–실행–복구의\n순환 체계를 얼마나 안정적으로 돌리느냐',
+        metrics: [
+          { label: '핵심', value: '운영 혁신', tone: 'up', arrow: 'right' },
+        ],
+      },
+    ],
+  },
+  {
+    id: 'cn-ai-factory-era-2026',
+    title: '2026, AI 팩토리: 보여주는 공장에서 판단하는 공장으로',
+    date: '2026.08.13',
+    summary:
+      '스마트공장과 AI 팩토리의 차이, 현장 기대효과, 정부 500개 목표를 한 장으로 정리했습니다. 전문기업 인증이 확산의 마중물이 되는 지점도 함께 봅니다.',
+    topic: '스마트공장 · 정책',
+    cover: '/card-news/cn-physical-ai-gap-gg.png',
+    sources: [
+      {
+        name: '인더스트리뉴스',
+        url: 'https://www.industrynews.co.kr/news/articleView.html?idxno=77059',
+      },
+      {
+        name: 'FA저널',
+        url: 'https://www.fajournal.com/news/articleView.html?idxno=20550',
+      },
+    ],
+    slides: [
+      {
+        layout: 'cover',
+        eyebrow: 'Card News 02',
+        title: 'AI가 제어하는\n공장의 현실',
+        body: '자율제조 · AI 팩토리 2026',
+        image: '/card-news/slide-control-room.png',
+      },
+      {
+        layout: 'text',
+        eyebrow: '정의',
+        title: '모니터링을 넘어\n학습·판단·제안',
+        body: '스마트공장: 가시화·규칙 기반 자동화\nAI 팩토리: 데이터 학습 → 예측 → 최적화·제어',
+        metrics: [
+          { label: 'Before', value: '보여주기', tone: 'neutral' },
+          { label: 'After', value: '판단하기', tone: 'up', arrow: 'right' },
+        ],
+      },
+      {
+        layout: 'split',
+        eyebrow: '현장 기대',
+        title: '무엇을 기대하나',
+        body: '제조 현장 설문에서 생산·품질 향상이 1순위\n인력난 해소·자동화 확대도 주요 기대',
+        image: '/card-news/slide-quality-parts.png',
+        bars: [
+          { label: '생산·품질', value: 65, display: '65%', tone: 'up' },
+          { label: '인력·자동화', value: 40, display: '40%', tone: 'neutral' },
+        ],
+      },
+      {
+        layout: 'split',
+        eyebrow: '기반',
+        title: '이미 있는\n3만 스마트공장',
+        body: '중소 제조기업의 80%가 AI 필요성을 체감\n정부는 AI 팩토리 500개 구축을 목표로 제시',
+        image: '/card-news/slide-factory-line.png',
+        metrics: [
+          { label: 'SF 기반', value: '3만+', tone: 'neutral' },
+          { label: 'AI 필요 체감', value: '80%', tone: 'up', arrow: 'up' },
+        ],
+      },
+      {
+        layout: 'text',
+        eyebrow: '확산 장치',
+        title: '전문기업 인증이\n마중물',
+        body: '산업부 AI 팩토리 전문기업 선정으로\n공급기업 신뢰·선도사업 우대·확산 경로를 만듦',
+        highlight: '품질검사·예지보전·에너지·공정예측 등 영역별 실증이 핵심',
+      },
+      {
+        layout: 'text',
+        eyebrow: '한 줄 정리',
+        title: '과제는 ROI,\n해법은 검증된 적용',
+        body: '초기 투자·성과 불확실성이 남아 있는 만큼\n현장 실증과 정책 지원이 같이 가야 합니다',
+        metrics: [
+          { label: '방향', value: '검증 확산', tone: 'up', arrow: 'right' },
+        ],
+      },
+    ],
+  },
+  {
+    id: 'cn-mobis-ai-sf-order-2026',
+    title: '제조 AI 수주가 늘었다: 모비스 4.2억 스마트공장 계약',
+    date: '2026.08.13',
+    summary:
+      '모비스–네오텍 AI 특화 지능형 스마트공장 구축 계약을 계기로, 민간 제조 AI 수주 확대 신호를 정리했습니다.',
+    topic: '스마트공장 · 시장',
+    cover: '/card-news/cn-mss-ai-smartfactory-2026.png',
+    sources: [
+      {
+        name: '한국경제TV',
+        url: 'https://www.wowtv.co.kr/NewsCenter/News/Read?articleId=202608070277L',
+      },
+      {
+        name: 'TokenPost',
+        url: 'https://www.tokenpost.kr/news/economy/386560',
+      },
+    ],
+    slides: [
+      {
+        layout: 'cover',
+        eyebrow: 'Card News 03',
+        title: '민간 수주로\n보이는\n제조 AI',
+        body: 'AI 특화 지능형 스마트공장 구축',
+        image: '/card-news/slide-welding-robot.png',
+      },
+      {
+        layout: 'split',
+        eyebrow: '계약 개요',
+        title: '약 4.2억 원\n단일 공급계약',
+        body: '모비스 ↔ 네오텍(자동차부품)\n기간: 2026.08.10 ~ 2027.05.09',
+        image: '/card-news/slide-factory-line.png',
+        metrics: [
+          { label: '계약액', value: '4.2억', tone: 'up', arrow: 'up' },
+          { label: '매출 대비', value: '8.2%', tone: 'neutral' },
+        ],
+      },
+      {
+        layout: 'text',
+        eyebrow: '맥락',
+        title: '단발보다\n수주 흐름',
+        body: '7월 보그워너창녕 자율형 스마트공장용\n제조 AI 시스템 구축에 이은 연속 수주',
+        metrics: [
+          { label: '신호', value: '연속 수주', tone: 'up', arrow: 'right' },
+        ],
+      },
+      {
+        layout: 'split',
+        eyebrow: '누적',
+        title: '2026년 들어\n공급계약 확대',
+        body: '1.1~8.7 공시 기준 공급계약 3건\n합계 약 33.3억 원으로 전년 동기 대비 확대',
+        image: '/card-news/slide-data-panel.png',
+        metrics: [
+          { label: '계약 건수', value: '3건', tone: 'neutral' },
+          { label: '합계', value: '33억+', tone: 'up', arrow: 'up' },
+        ],
+      },
+      {
+        layout: 'split',
+        eyebrow: '시사점',
+        title: '정책 지원 다음엔\n민간 발주',
+        body: '정부 사업 참여 경험을 바탕으로\n민간 제조사 대상 AI 공장 구축이 늘고 있음',
+        image: '/card-news/slide-quality-parts.png',
+        highlight: '※ 계약·금액은 공시·보도 기준, 상세는 원문 확인',
+      },
+      {
+        layout: 'text',
+        eyebrow: '한 줄 정리',
+        title: '제조 AI는\n‘사업’이 되고 있다',
+        body: '솔루션 데모 단계를 지나\n납기·규모·반복 수주가 보이는 구간으로 진입',
+        metrics: [
+          { label: '핵심', value: '민간 수요', tone: 'up', arrow: 'right' },
+        ],
+      },
+    ],
+  },
   {
     id: 'cn-ai-factory-max-2026',
     title: 'AI 팩토리, 생산성 +30% · 불량 −15%의 의미',
@@ -60,7 +289,7 @@ export const cardNewsSamples: CardNewsSample[] = [
     slides: [
       {
         layout: 'cover',
-        eyebrow: 'Card News 01',
+        eyebrow: 'Card News',
         title: 'AI 팩토리,\n현장 숫자가\n나왔다',
         body: '스마트공장 · 제조 AI 전환 (M.AX)',
         image: '/card-news/slide-factory-line.png',
@@ -133,7 +362,7 @@ export const cardNewsSamples: CardNewsSample[] = [
     slides: [
       {
         layout: 'cover',
-        eyebrow: 'Card News 02',
+        eyebrow: 'Card News',
         title: '스마트공장이\n막히는 지점',
         body: '데이터는 쌓였는데, 현장 AI는 아직',
         image: '/card-news/slide-control-room.png',
@@ -193,6 +422,85 @@ export const cardNewsSamples: CardNewsSample[] = [
         image: '/card-news/slide-quality-parts.png',
         metrics: [
           { label: '다음 단계', value: '연결', tone: 'up', arrow: 'right' },
+        ],
+      },
+    ],
+  },
+  {
+    id: 'cn-smart-mfg-special-class-2026',
+    title: '스마트제조 공급기업, 이제 ‘특수분류’로 잡힌다',
+    date: '2026.07.23',
+    summary:
+      '중기부·국가데이터처가 국내 최초로 스마트제조기술산업 특수분류를 제정했습니다. 공급기업을 통계·정책으로 연결하는 기준을 정리했습니다.',
+    topic: '스마트공장 · 정책',
+    cover: '/card-news/cn-mss-ai-smartfactory-2026.png',
+    sources: [
+      {
+        name: '연합뉴스',
+        url: 'https://www.yna.co.kr/view/AKR20260723066600030',
+      },
+      {
+        name: '머니투데이',
+        url: 'https://www.mt.co.kr/economy/2026/07/23/2026072311245053305',
+      },
+    ],
+    slides: [
+      {
+        layout: 'cover',
+        eyebrow: 'Card News',
+        title: '공급기업을\n세는 기준이\n생겼다',
+        body: '스마트제조기술산업 특수분류 제정',
+        image: '/card-news/slide-data-panel.png',
+      },
+      {
+        layout: 'split',
+        eyebrow: '왜 중요한가',
+        title: '그동안은\n누가 공급기업인지\n애매했다',
+        body: '스마트공장 핵심 제품·서비스를\n식별할 공식 산업분류가 없었던 문제를 보완',
+        image: '/card-news/slide-control-room.png',
+        metrics: [
+          { label: '주체', value: '중기부', tone: 'neutral' },
+          { label: '발표', value: '2026.07', tone: 'up', arrow: 'up' },
+        ],
+      },
+      {
+        layout: 'text',
+        eyebrow: '구성',
+        title: '4대 영역으로\n나눈다',
+        body: '자동화·연결화·정보화·지능화로\n스마트제조 공급 영역을 체계화',
+        bars: [
+          { label: '자동화기기 제조', value: 25, display: '영역 1', tone: 'neutral' },
+          { label: '연결화기기 제조', value: 25, display: '영역 2', tone: 'neutral' },
+          { label: '정보화 솔루션', value: 25, display: '영역 3', tone: 'up' },
+          { label: '지능화 서비스', value: 25, display: '영역 4', tone: 'up' },
+        ],
+      },
+      {
+        layout: 'split',
+        eyebrow: '구조',
+        title: '대·중·소\n3계층 분류',
+        body: '대분류 4개 → 중분류 7개 → 소분류 34개\n통계와 정책 설계의 공통 언어가 됨',
+        image: '/card-news/slide-factory-line.png',
+        metrics: [
+          { label: '중분류', value: '7개', tone: 'neutral' },
+          { label: '소분류', value: '34개', tone: 'up', arrow: 'right' },
+        ],
+      },
+      {
+        layout: 'split',
+        eyebrow: '앞으로',
+        title: '실태조사·법 개정으로\n이어진다',
+        body: '정기 실태조사와 전략기술 로드맵,\n하반기 스마트제조혁신법 전면 개정 추진',
+        image: '/card-news/slide-quality-parts.png',
+        highlight: '※ 세부 일정·범위는 원문에서 확인',
+      },
+      {
+        layout: 'text',
+        eyebrow: '한 줄 정리',
+        title: '수요기업만이 아니라\n공급기업도 제도화',
+        body: '누가 무엇을 공급하는지 명확해질수록\n지원·매칭·성장 경로도 선명해집니다',
+        metrics: [
+          { label: '핵심', value: '특수분류', tone: 'up', arrow: 'right' },
         ],
       },
     ],

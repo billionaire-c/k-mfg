@@ -38,7 +38,7 @@ export function HomePage() {
         <SocialLinks className="fade-up fade-up-delay-3 mt-5" />
       </section>
 
-      <section className="pt-8 pb-14 md:pt-10 md:pb-16">
+      <section className="py-8 md:py-10">
         <SectionHeading
           eyebrow="Card News"
           title="카드뉴스"
@@ -47,7 +47,7 @@ export function HomePage() {
         <CardNewsGrid items={cardNewsSamples.slice(0, 3)} />
       </section>
 
-      <section className="py-14 md:py-16">
+      <section className="py-8 md:py-10">
         <SectionHeading
           eyebrow="Insights"
           title="인사이트"
@@ -56,7 +56,7 @@ export function HomePage() {
         <InsightList items={insightSamples.slice(0, 2)} />
       </section>
 
-      <section className="py-14 md:py-16">
+      <section className="py-8 md:py-10">
         <SectionHeading eyebrow="YouTube" title="유튜브" moreHref="/youtube" />
         <div className="grid gap-6 md:grid-cols-2">
           {youtube.map((video) => (

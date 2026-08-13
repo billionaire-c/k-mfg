@@ -10,6 +10,7 @@ export function CardNewsDetailPage() {
 
   useEffect(() => {
     setIndex(0)
+    window.scrollTo(0, 0)
   }, [id])
 
   if (!sample) return <Navigate to="/card-news" replace />
@@ -22,27 +23,6 @@ export function CardNewsDetailPage() {
 
   const goPrev = () => setIndex((v) => Math.max(0, v - 1))
   const goNext = () => setIndex((v) => Math.min(total - 1, v + 1))
-
-  const navButtons = (
-    <div className="flex gap-2">
-      <button
-        type="button"
-        onClick={goPrev}
-        disabled={isFirst}
-        className="h-10 rounded-full border border-[#030303] px-4 text-[13px] font-semibold disabled:opacity-30"
-      >
-        이전
-      </button>
-      <button
-        type="button"
-        onClick={goNext}
-        disabled={isLast}
-        className="h-10 rounded-full bg-[#030303] px-4 text-[13px] font-semibold text-white disabled:opacity-30"
-      >
-        다음
-      </button>
-    </div>
-  )
 
   return (
     <div className="min-h-[calc(100vh-8rem)] bg-white text-[#030303]">
@@ -58,16 +38,16 @@ export function CardNewsDetailPage() {
           </div>
 
           <article
-            className="relative flex aspect-[4/5] max-h-[760px] w-full flex-col overflow-hidden border border-[#e7eaf0] bg-white"
+            className="relative flex h-[min(72vh,720px)] w-full flex-col overflow-hidden border border-[#e7eaf0] bg-white"
             onKeyDown={(e) => {
               if (e.key === 'ArrowRight') goNext()
               if (e.key === 'ArrowLeft') goPrev()
             }}
             tabIndex={0}
           >
-            {layout === 'cover' && slide.image ? (
-              <>
-                <div className="relative min-h-0 flex-1 bg-[#d0d4d4]">
+            <div className="min-h-0 flex-1 overflow-hidden">
+              {layout === 'cover' && slide.image ? (
+                <div className="relative h-full bg-[#d0d4d4]">
                   <img
                     src={slide.image}
                     alt=""
@@ -88,28 +68,20 @@ export function CardNewsDetailPage() {
                     ) : null}
                   </div>
                 </div>
-                <div className="flex items-center justify-between border-t border-[#e7eaf0] bg-white px-5 py-4">
-                  <p className="text-[11px] tracking-[0.14em] text-[#939393] uppercase">
-                    K-Manufacturing
-                  </p>
-                  {navButtons}
-                </div>
-              </>
-            ) : null}
+              ) : null}
 
-            {layout === 'split' ? (
-              <>
-                {slide.image ? (
-                  <div className="relative h-[38%] min-h-[140px] bg-[#d0d4d4]">
-                    <img
-                      src={slide.image}
-                      alt=""
-                      className="absolute inset-0 h-full w-full object-cover"
-                    />
-                  </div>
-                ) : null}
-                <div className="flex min-h-0 flex-1 flex-col justify-between overflow-auto p-6 md:p-8">
-                  <div>
+              {layout === 'split' ? (
+                <div className="flex h-full flex-col">
+                  {slide.image ? (
+                    <div className="relative h-[42%] shrink-0 bg-[#d0d4d4]">
+                      <img
+                        src={slide.image}
+                        alt=""
+                        className="absolute inset-0 h-full w-full object-cover"
+                      />
+                    </div>
+                  ) : null}
+                  <div className="min-h-0 flex-1 overflow-auto p-6 md:p-8">
                     {slide.eyebrow ? (
                       <p className="mb-3 text-[11px] font-medium tracking-[0.2em] text-[#676f7b] uppercase">
                         {slide.eyebrow}
@@ -131,19 +103,11 @@ export function CardNewsDetailPage() {
                       </p>
                     ) : null}
                   </div>
-                  <div className="mt-6 flex items-center justify-between gap-3">
-                    <p className="text-[11px] tracking-[0.14em] text-[#939393] uppercase">
-                      K-Manufacturing
-                    </p>
-                    {navButtons}
-                  </div>
                 </div>
-              </>
-            ) : null}
+              ) : null}
 
-            {layout === 'text' ? (
-              <div className="flex h-full flex-col justify-between p-6 md:p-10">
-                <div>
+              {layout === 'text' ? (
+                <div className="h-full overflow-auto p-6 md:p-10">
                   {slide.eyebrow ? (
                     <p className="mb-4 text-[11px] font-medium tracking-[0.2em] text-[#676f7b] uppercase">
                       {slide.eyebrow}
@@ -165,14 +129,32 @@ export function CardNewsDetailPage() {
                     </p>
                   ) : null}
                 </div>
-                <div className="mt-8 flex items-center justify-between gap-3">
-                  <p className="text-[11px] tracking-[0.14em] text-[#939393] uppercase">
-                    K-Manufacturing
-                  </p>
-                  {navButtons}
-                </div>
+              ) : null}
+            </div>
+
+            <div className="flex h-16 shrink-0 items-center justify-between border-t border-[#e7eaf0] bg-white px-5">
+              <p className="text-[11px] tracking-[0.14em] text-[#939393] uppercase">
+                K-Manufacturing
+              </p>
+              <div className="flex gap-2">
+                <button
+                  type="button"
+                  onClick={goPrev}
+                  disabled={isFirst}
+                  className="h-10 rounded-full border border-[#030303] px-4 text-[13px] font-semibold disabled:opacity-30"
+                >
+                  이전
+                </button>
+                <button
+                  type="button"
+                  onClick={goNext}
+                  disabled={isLast}
+                  className="h-10 rounded-full bg-[#030303] px-4 text-[13px] font-semibold text-white disabled:opacity-30"
+                >
+                  다음
+                </button>
               </div>
-            ) : null}
+            </div>
           </article>
 
           <div className="mt-4 flex justify-center gap-1.5">
