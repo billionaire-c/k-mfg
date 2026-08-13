@@ -25,6 +25,7 @@ export function MapPage() {
   const [selectedId, setSelectedId] = useState<string | null>(null)
   const [status, setStatus] = useState('데이터 불러오는 중…')
   const [error, setError] = useState('')
+  const [mapReady, setMapReady] = useState(false)
 
   useEffect(() => {
     let cancelled = false
@@ -75,6 +76,7 @@ export function MapPage() {
   useEffect(() => {
     if (!mapRef.current || !KAKAO_KEY || items.length === 0) return
     let cancelled = false
+    setMapReady(false)
 
     ;(async () => {
       try {
@@ -93,8 +95,10 @@ export function MapPage() {
           averageCenter: true,
           minLevel: 8,
         })
+        if (!cancelled) setMapReady(true)
       } catch (e) {
         if (!cancelled) {
+          setMapReady(false)
           setError(
             e instanceof Error
               ? e.message
@@ -106,6 +110,7 @@ export function MapPage() {
 
     return () => {
       cancelled = true
+      setMapReady(false)
       clustererRef.current?.clear()
       clustererRef.current = null
       mapObj.current = null
@@ -113,6 +118,7 @@ export function MapPage() {
   }, [items.length])
 
   useEffect(() => {
+    if (!mapReady) return
     const map = mapObj.current
     const clusterer = clustererRef.current
     const kakao = window.kakao
@@ -149,7 +155,7 @@ export function MapPage() {
       )
       map.setBounds(bounds)
     }
-  }, [filtered, items.length])
+  }, [filtered, items.length, mapReady])
 
   const focusItem = (item: SupplierItem) => {
     setSelectedId(item.id)
