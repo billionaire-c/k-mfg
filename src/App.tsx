@@ -9,6 +9,8 @@ import { AdminLoginPage } from './pages/admin/AdminLoginPage'
 import { AdminPage } from './pages/admin/AdminPage'
 import { CardNewsDetailPage } from './pages/CardNewsDetailPage'
 import { CardNewsPage } from './pages/CardNewsPage'
+import { FieldNoteDetailPage } from './pages/FieldNoteDetailPage'
+import { FieldNotesPage } from './pages/FieldNotesPage'
 import { GuestbookPage } from './pages/GuestbookPage'
 import { GlossaryPage } from './pages/GlossaryPage'
 import { HomePage } from './pages/HomePage'
@@ -31,6 +33,8 @@ export default function App() {
                 <Route path="card-news" element={<CardNewsPage />} />
                 <Route path="card-news/:id" element={<CardNewsDetailPage />} />
                 <Route path="insights" element={<InsightsPage />} />
+                <Route path="notes" element={<FieldNotesPage />} />
+                <Route path="notes/:id" element={<FieldNoteDetailPage />} />
                 <Route path="youtube" element={<YoutubePage />} />
                 <Route path="map" element={<MapPage />} />
                 <Route path="policy" element={<PolicyPage />} />

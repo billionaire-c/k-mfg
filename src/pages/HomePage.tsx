@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { CardNewsGrid } from '../components/CardNewsGrid'
+import { FieldNoteList } from '../components/FieldNoteList'
 import { GlossaryList } from '../components/GlossaryList'
 import { InsightList } from '../components/InsightList'
 import { PolicyList } from '../components/PolicyList'
@@ -7,6 +8,7 @@ import { SectionHeading } from '../components/SectionHeading'
 import { SocialLinks } from '../components/SocialLinks'
 import { YoutubeEmbed } from '../components/YoutubeEmbed'
 import { cardNewsSamples } from '../data/cardNewsSamples'
+import { fieldNoteSamples } from '../data/fieldNoteSamples'
 import { glossarySamples } from '../data/glossarySamples'
 import { insightSamples } from '../data/insightSamples'
 import { site } from '../data/placeholders'
@@ -61,6 +63,15 @@ export function HomePage() {
           moreHref="/insights"
         />
         <InsightList items={insightSamples.slice(0, 2)} />
+      </section>
+
+      <section className="py-8 md:py-10">
+        <SectionHeading
+          eyebrow="Field Notes"
+          title="현장 노트"
+          moreHref="/notes"
+        />
+        <FieldNoteList items={fieldNoteSamples.slice(0, 2)} />
       </section>
 
       <section className="py-8 md:py-10">

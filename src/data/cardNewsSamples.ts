@@ -42,6 +42,11 @@ export type CardNewsSample = {
 /**
  * 자체 요약 카드뉴스 — 원문 링크 포함
  * 최신 글이 배열 앞쪽. 매일 추가 시 기존 항목은 유지하고 앞에 push.
+ *
+ * 커버 디자인 (다음 제작부터):
+ * - 목록 좌상단 `issue`(월-No) UI와 겹치므로, 커버 PNG에 01/02/03 숫자 넣지 말 것.
+ * - 배경에는 대주제 키워드만 두고, 좌상단 월-No 영역은 비울 것.
+ * - 기존 배포 커버는 수정하지 않음.
  */
 export const cardNewsSamples: CardNewsSample[] = [
   {

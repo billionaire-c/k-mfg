@@ -22,6 +22,7 @@ const navItems: NavItem[] = [
   { type: 'link', to: '/', label: '소개', end: true },
   { type: 'link', to: '/card-news', label: '카드뉴스' },
   { type: 'link', to: '/insights', label: '인사이트' },
+  { type: 'link', to: '/notes', label: '현장 노트' },
   { type: 'link', to: '/youtube', label: '유튜브' },
   {
     type: 'group',
