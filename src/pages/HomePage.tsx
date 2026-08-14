@@ -3,6 +3,7 @@ import { CardNewsGrid } from '../components/CardNewsGrid'
 import { FieldNoteList } from '../components/FieldNoteList'
 import { GlossaryList } from '../components/GlossaryList'
 import { InsightList } from '../components/InsightList'
+import { KpiBoard } from '../components/KpiBoard'
 import { PolicyList } from '../components/PolicyList'
 import { SectionHeading } from '../components/SectionHeading'
 import { SocialLinks } from '../components/SocialLinks'
@@ -46,6 +47,8 @@ export function HomePage() {
 
         <SocialLinks className="fade-up fade-up-delay-3 mt-5" />
       </section>
+
+      <KpiBoard />
 
       <section className="py-8 md:py-10">
         <SectionHeading
