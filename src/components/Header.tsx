@@ -38,6 +38,7 @@ const navItems: NavItem[] = [
   { type: 'link', to: '/contact', label: '문의' },
   { type: 'link', to: '/guestbook', label: '방명록' },
   { type: 'link', to: '/search', label: '찾기' },
+  { type: 'link', to: '/sitemap', label: '사이트맵' },
 ]
 
 export function Header() {

@@ -37,7 +37,12 @@ export function SearchPage() {
         찾기
       </h1>
       <p className="mb-8 max-w-xl text-[15px] leading-relaxed text-ink-muted">
-        카드뉴스, 인사이트, 유튜브 콘텐츠를 검색합니다.
+        카드뉴스, 인사이트, 유튜브 콘텐츠를 검색합니다. 메뉴 전체 구조가
+        필요하면{' '}
+        <Link to="/sitemap" className="text-ink transition-colors hover:text-accent">
+          사이트맵
+        </Link>
+        을 보세요.
       </p>
 
       <label className="mb-10 block">

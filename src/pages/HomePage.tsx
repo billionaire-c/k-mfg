@@ -46,6 +46,13 @@ export function HomePage() {
         </div>
 
         <SocialLinks className="fade-up fade-up-delay-3 mt-5" />
+        <p className="fade-up fade-up-delay-3 mt-4 text-[12px] text-ink-faint">
+          메뉴가 낯설다면{' '}
+          <Link to="/sitemap" className="text-ink-muted transition-colors hover:text-accent">
+            사이트맵
+          </Link>
+          에서 구조를 먼저 보세요.
+        </p>
       </section>
 
       <KpiBoard />
@@ -128,6 +135,36 @@ export function HomePage() {
           moreHref="/policy"
         />
         <PolicyList items={policies} />
+      </section>
+
+      <section className="py-8 md:py-10">
+        <SectionHeading
+          eyebrow="Standards"
+          title="표준·인증"
+          moreHref="/standards"
+        />
+        <p className="max-w-xl text-[14px] leading-relaxed text-ink-muted">
+          ISO·IATF·정보보안·개인정보 인증을 마인드맵과 플로우로 정리했습니다.
+          우리 공장에 맞는 경로를 빠르게 찾아보세요.
+        </p>
+        <ul className="mt-4 flex flex-wrap gap-2 text-[12px]">
+          {['ISO 9001', 'IATF 16949', 'ISO 27001', 'ISMS-P'].map((code) => (
+            <li
+              key={code}
+              className="border border-line bg-surface px-2 py-1 text-ink-muted"
+            >
+              {code}
+            </li>
+          ))}
+        </ul>
+        <div className="mt-5">
+          <Link
+            to="/standards"
+            className="text-[13px] text-ink-muted transition-colors hover:text-accent"
+          >
+            표준·인증 안내 »
+          </Link>
+        </div>
       </section>
 
       <section className="py-8 md:py-10">
