@@ -1,16 +1,24 @@
 import { Link } from 'react-router-dom'
 import { CardNewsGrid } from '../components/CardNewsGrid'
+import { GlossaryList } from '../components/GlossaryList'
 import { InsightList } from '../components/InsightList'
+import { PolicyList } from '../components/PolicyList'
 import { SectionHeading } from '../components/SectionHeading'
 import { SocialLinks } from '../components/SocialLinks'
 import { YoutubeEmbed } from '../components/YoutubeEmbed'
 import { cardNewsSamples } from '../data/cardNewsSamples'
+import { glossarySamples } from '../data/glossarySamples'
 import { insightSamples } from '../data/insightSamples'
 import { site } from '../data/placeholders'
+import { policySamples } from '../data/policySamples'
 import { youtubeSamples } from '../data/youtubeSamples'
 
 export function HomePage() {
   const youtube = youtubeSamples.slice(0, 2)
+  const policies = policySamples.slice(0, 3)
+  const glossary = [...glossarySamples]
+    .sort((a, b) => a.termKo.localeCompare(b.termKo, 'ko'))
+    .slice(0, 4)
 
   return (
     <div className="mx-auto max-w-3xl px-5 md:px-6">
@@ -97,6 +105,24 @@ export function HomePage() {
             지도 보기 »
           </Link>
         </div>
+      </section>
+
+      <section className="py-8 md:py-10">
+        <SectionHeading
+          eyebrow="Policy"
+          title="정책·지원사업"
+          moreHref="/policy"
+        />
+        <PolicyList items={policies} />
+      </section>
+
+      <section className="py-8 md:py-10">
+        <SectionHeading
+          eyebrow="Glossary"
+          title="용어·해설"
+          moreHref="/glossary"
+        />
+        <GlossaryList items={glossary} />
       </section>
     </div>
   )

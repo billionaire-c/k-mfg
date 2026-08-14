@@ -32,6 +32,8 @@ export type CardNewsSample = {
   date: string
   summary: string
   topic: string
+  /** 잡지형 호수. 예: 08월-01 — 목록 커버 좌상단에 표시 */
+  issue?: string
   cover: string
   sources: { name: string; url: string }[]
   slides: CardSlide[]
@@ -49,6 +51,7 @@ export const cardNewsSamples: CardNewsSample[] = [
     summary:
       '과기정통부가 8월부터 경남·전북에서 현장 제조데이터 수집에 착수합니다. 피지컬 AI 범용 파운데이션 모델(범파모)의 첫 후속 조치를 정리했습니다.',
     topic: '스마트공장 · 정책',
+    issue: '08월-01',
     cover: '/card-news/cn-physical-ai-gap-gg.png',
     sources: [
       {
@@ -59,7 +62,7 @@ export const cardNewsSamples: CardNewsSample[] = [
     slides: [
       {
         layout: 'cover',
-        eyebrow: '8월-01',
+        eyebrow: '08월-01',
         title: '공장 데이터가\n먼저다',
         body: '피지컬 AI · 범파모 후속 조치',
         image: '/card-news/slide-data-panel.png',
@@ -121,6 +124,7 @@ export const cardNewsSamples: CardNewsSample[] = [
     summary:
       '울산TP가 제조 AI 신속 상용화(AX-Sprint) 3개 과제에 총 71억 원을 투입합니다. 조선 용접·자동차 이상탐지·EV 배터리 유연생산을 정리했습니다.',
     topic: '스마트공장 · 지역',
+    issue: '08월-02',
     cover: '/card-news/cn-ai-factory-max-2026.png',
     sources: [
       {
@@ -131,7 +135,7 @@ export const cardNewsSamples: CardNewsSample[] = [
     slides: [
       {
         layout: 'cover',
-        eyebrow: '8월-02',
+        eyebrow: '08월-02',
         title: '보이게 한 다음엔\n스스로 판단',
         body: '울산TP · 제조 AX 상용화',
         image: '/card-news/slide-welding-robot.png',
@@ -194,6 +198,7 @@ export const cardNewsSamples: CardNewsSample[] = [
     summary:
       '전국 19개 지역 스마트제조혁신센터 평가에서 대전TP가 A등급을 받았습니다. 비전검사·시뮬레이션·예지보전 중심 지원과 KPI 성과를 요약합니다.',
     topic: '스마트공장 · 지역',
+    issue: '08월-03',
     cover: '/card-news/cn-mss-ai-smartfactory-2026.png',
     sources: [
       {
@@ -204,7 +209,7 @@ export const cardNewsSamples: CardNewsSample[] = [
     slides: [
       {
         layout: 'cover',
-        eyebrow: '8월-03',
+        eyebrow: '08월-03',
         title: '구축 다음엔\n활용 성적',
         body: '지역 스마트제조혁신센터 성과평가',
         image: '/card-news/slide-quality-parts.png',

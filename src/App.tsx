@@ -10,9 +10,11 @@ import { AdminPage } from './pages/admin/AdminPage'
 import { CardNewsDetailPage } from './pages/CardNewsDetailPage'
 import { CardNewsPage } from './pages/CardNewsPage'
 import { GuestbookPage } from './pages/GuestbookPage'
+import { GlossaryPage } from './pages/GlossaryPage'
 import { HomePage } from './pages/HomePage'
 import { InsightsPage } from './pages/InsightsPage'
 import { MapPage } from './pages/MapPage'
+import { PolicyPage } from './pages/PolicyPage'
 import { SearchPage } from './pages/SearchPage'
 import { YoutubePage } from './pages/YoutubePage'
 
@@ -31,6 +33,8 @@ export default function App() {
                 <Route path="insights" element={<InsightsPage />} />
                 <Route path="youtube" element={<YoutubePage />} />
                 <Route path="map" element={<MapPage />} />
+                <Route path="policy" element={<PolicyPage />} />
+                <Route path="glossary" element={<GlossaryPage />} />
                 <Route path="guestbook" element={<GuestbookPage />} />
                 <Route path="search" element={<SearchPage />} />
                 <Route path="admin/login" element={<AdminLoginPage />} />
