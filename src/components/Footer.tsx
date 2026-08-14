@@ -19,6 +19,11 @@ const footerLinks = [
     kind: 'external' as const,
   },
   {
+    label: '사이트맵',
+    href: '/sitemap',
+    kind: 'route' as const,
+  },
+  {
     label: '오너 로그인',
     href: '/admin/login',
     kind: 'route' as const,

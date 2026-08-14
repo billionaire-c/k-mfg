@@ -20,6 +20,8 @@ import { MapPage } from './pages/MapPage'
 import { MaturityPage } from './pages/MaturityPage'
 import { PolicyPage } from './pages/PolicyPage'
 import { SearchPage } from './pages/SearchPage'
+import { SitemapPage } from './pages/SitemapPage'
+import { StandardsPage } from './pages/StandardsPage'
 import { YoutubePage } from './pages/YoutubePage'
 
 export default function App() {
@@ -40,11 +42,13 @@ export default function App() {
                 <Route path="youtube" element={<YoutubePage />} />
                 <Route path="map" element={<MapPage />} />
                 <Route path="policy" element={<PolicyPage />} />
+                <Route path="standards" element={<StandardsPage />} />
                 <Route path="check" element={<MaturityPage />} />
                 <Route path="glossary" element={<GlossaryPage />} />
                 <Route path="contact" element={<ContactPage />} />
                 <Route path="guestbook" element={<GuestbookPage />} />
                 <Route path="search" element={<SearchPage />} />
+                <Route path="sitemap" element={<SitemapPage />} />
                 <Route path="admin/login" element={<AdminLoginPage />} />
                 <Route path="admin" element={<AdminPage />} />
                 <Route path="*" element={<Navigate to="/" replace />} />
