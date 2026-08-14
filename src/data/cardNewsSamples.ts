@@ -43,6 +43,224 @@ export type CardNewsSample = {
  */
 export const cardNewsSamples: CardNewsSample[] = [
   {
+    id: 'cn-physical-ai-data-2026',
+    title: '피지컬 AI의 첫발: 정부가 공장 데이터를 모은다',
+    date: '2026.08.14',
+    summary:
+      '과기정통부가 8월부터 경남·전북에서 현장 제조데이터 수집에 착수합니다. 피지컬 AI 범용 파운데이션 모델(범파모)의 첫 후속 조치를 정리했습니다.',
+    topic: '스마트공장 · 정책',
+    cover: '/card-news/cn-physical-ai-gap-gg.png',
+    sources: [
+      {
+        name: '뉴스1',
+        url: 'https://www.news1.kr/it-science/internet-platform/6255855',
+      },
+    ],
+    slides: [
+      {
+        layout: 'cover',
+        eyebrow: '8월-01',
+        title: '공장 데이터가\n먼저다',
+        body: '피지컬 AI · 범파모 후속 조치',
+        image: '/card-news/slide-data-panel.png',
+      },
+      {
+        layout: 'text',
+        eyebrow: '일정',
+        title: '8월 넷째 주부터\n데이터 수집',
+        body: '경남·전북 AX R&D 사업을 통해\n현장 제조데이터를 선제 확보',
+        metrics: [
+          { label: '주관', value: '과기정통부', tone: 'neutral' },
+          { label: '권역', value: '경남·전북', tone: 'up', arrow: 'right' },
+        ],
+      },
+      {
+        layout: 'split',
+        eyebrow: '왜 필요한가',
+        title: '피지컬 AI는\n현장 데이터가 핵심',
+        body: '연구실·가상 데이터만으로는\n설비·작업·환경 변화를 충분히 담기 어려움',
+        image: '/card-news/slide-control-room.png',
+        highlight: '인식 → 판단 → 로봇·장비 직접 제어',
+      },
+      {
+        layout: 'split',
+        eyebrow: '규모',
+        title: '지역 AX 거점\n5년 1.4조 원대',
+        body: '2026~2030년 경남·전북 AX 연구개발사업\n총 약 1조 4131억 원 규모',
+        image: '/card-news/slide-factory-line.png',
+        metrics: [
+          { label: '기간', value: '5년', tone: 'neutral' },
+          { label: '규모', value: '1.4조+', tone: 'up', arrow: 'up' },
+        ],
+      },
+      {
+        layout: 'text',
+        eyebrow: '역할',
+        title: '올해는 사전 작업,\n본격 확보는 내년',
+        body: '기존 AX 축적 데이터를 우선 활용하고\n내년 센서·장비 구축·대규모 확보로 확장',
+        bars: [
+          { label: '경남', value: 50, display: '장비 데이터', tone: 'up' },
+          { label: '전북', value: 40, display: '로봇 관련', tone: 'neutral' },
+        ],
+      },
+      {
+        layout: 'text',
+        eyebrow: '한 줄 정리',
+        title: '모델보다 먼저\n현장 데이터',
+        body: '범파모 학습의 재료를 모으는 단계가 시작됐습니다.\n중소기업 참여 인센티브도 부처 간 협의 중',
+        metrics: [
+          { label: '핵심', value: '데이터 선행', tone: 'up', arrow: 'right' },
+        ],
+      },
+    ],
+  },
+  {
+    id: 'cn-ulsan-ax-sprint-2026',
+    title: '울산, 스마트공장 다음 단계: 자율제조에 71억',
+    date: '2026.08.14',
+    summary:
+      '울산TP가 제조 AI 신속 상용화(AX-Sprint) 3개 과제에 총 71억 원을 투입합니다. 조선 용접·자동차 이상탐지·EV 배터리 유연생산을 정리했습니다.',
+    topic: '스마트공장 · 지역',
+    cover: '/card-news/cn-ai-factory-max-2026.png',
+    sources: [
+      {
+        name: '브릿지경제',
+        url: 'https://www.viva100.com/article/20260813500744',
+      },
+    ],
+    slides: [
+      {
+        layout: 'cover',
+        eyebrow: '8월-02',
+        title: '보이게 한 다음엔\n스스로 판단',
+        body: '울산TP · 제조 AX 상용화',
+        image: '/card-news/slide-welding-robot.png',
+      },
+      {
+        layout: 'split',
+        eyebrow: '규모',
+        title: '3개 과제\n총 71.7억 원',
+        body: '국비 50.2억 + 민간 21.5억\n조선·자동차 현장 실증',
+        image: '/card-news/slide-factory-line.png',
+        metrics: [
+          { label: '과제', value: '3건', tone: 'neutral' },
+          { label: '총액', value: '71억', tone: 'up', arrow: 'up' },
+        ],
+      },
+      {
+        layout: 'text',
+        eyebrow: '조선',
+        title: '블록 용접\n자율화 실증',
+        body: '레일 용접 로봇 + AI로 조건·경로를 실시간 조정\n생산성 +10%가 목표',
+        metrics: [
+          { label: '투입', value: '18.9억', tone: 'neutral' },
+          { label: '목표', value: '+10%', tone: 'up', arrow: 'up' },
+        ],
+      },
+      {
+        layout: 'split',
+        eyebrow: '자동차',
+        title: '로봇 85대\n이상탐지·최적화',
+        body: '164개 공정 데이터로 고장 징후를 예측하고\n3D 시뮬레이션으로 개선 효과를 사전 검증',
+        image: '/card-news/slide-control-room.png',
+        metrics: [
+          { label: '로봇', value: '85대', tone: 'neutral' },
+          { label: '공정', value: '164', tone: 'up', arrow: 'right' },
+        ],
+      },
+      {
+        layout: 'split',
+        eyebrow: '기반',
+        title: '스마트공장\n514곳이 밑바탕',
+        body: '지역 등록공장의 약 15.8%\n데이터·GPU 인프라로 AI 학습 환경 확대',
+        image: '/card-news/slide-data-panel.png',
+        highlight: '※ 세부 과제·금액은 원문 기준',
+      },
+      {
+        layout: 'text',
+        eyebrow: '한 줄 정리',
+        title: '지역 주력산업이\nAX 실증 무대',
+        body: '스마트공장 보급 다음 단계는\n이상예측·공정자율·유연생산의 상용화',
+        metrics: [
+          { label: '방향', value: '자율제조', tone: 'up', arrow: 'right' },
+        ],
+      },
+    ],
+  },
+  {
+    id: 'cn-daejeon-tp-a-grade-2026',
+    title: '대전TP A등급: 스마트공장 이후의 제조 AI가 점수다',
+    date: '2026.08.14',
+    summary:
+      '전국 19개 지역 스마트제조혁신센터 평가에서 대전TP가 A등급을 받았습니다. 비전검사·시뮬레이션·예지보전 중심 지원과 KPI 성과를 요약합니다.',
+    topic: '스마트공장 · 지역',
+    cover: '/card-news/cn-mss-ai-smartfactory-2026.png',
+    sources: [
+      {
+        name: '뉴데일리',
+        url: 'https://cc.newdaily.co.kr/site/data/html/2026/08/13/2026081300090.html',
+      },
+    ],
+    slides: [
+      {
+        layout: 'cover',
+        eyebrow: '8월-03',
+        title: '구축 다음엔\n활용 성적',
+        body: '지역 스마트제조혁신센터 성과평가',
+        image: '/card-news/slide-quality-parts.png',
+      },
+      {
+        layout: 'split',
+        eyebrow: '결과',
+        title: '전국 19개 센터 중\nA등급',
+        body: '중기부·중기기술정보진흥원\n2025년 성과평가 우수등급',
+        image: '/card-news/slide-data-panel.png',
+        metrics: [
+          { label: '평가 대상', value: '19곳', tone: 'neutral' },
+          { label: '등급', value: 'A', tone: 'up', arrow: 'up' },
+        ],
+      },
+      {
+        layout: 'text',
+        eyebrow: '3대 모델',
+        title: '비전검사·시뮬레이션\n·예지보전',
+        body: '구축 후 데이터 활용이 어려운 중소기업을 위해\n품질·공정·설비 AI를 묶어 지원',
+        bars: [
+          { label: '비전검사', value: 90, display: '품질', tone: 'up' },
+          { label: '시뮬레이션', value: 75, display: '공정', tone: 'neutral' },
+          { label: '예지보전', value: 80, display: '설비', tone: 'up' },
+        ],
+      },
+      {
+        layout: 'split',
+        eyebrow: '성과',
+        title: 'KPI 목표 대비\n평균 160%+',
+        body: '리드타임·불량률 등 핵심지표 초과 달성\n기존 구축기업 80%+가 우수 가동·활용 유지',
+        image: '/card-news/slide-factory-line.png',
+        metrics: [
+          { label: 'KPI', value: '160%+', tone: 'up', arrow: 'up' },
+          { label: '가동·활용', value: '80%+', tone: 'up' },
+        ],
+      },
+      {
+        layout: 'text',
+        eyebrow: '다음',
+        title: '모델 공유와\n맞춤 고도화',
+        body: '대표 제조AI 데이터 확산,\n기업별 분석 환경·맞춤 모델로 확장',
+        highlight: '※ 평가·수치는 보도 기준, 상세는 원문 확인',
+      },
+      {
+        layout: 'text',
+        eyebrow: '한 줄 정리',
+        title: '도입보다\n현장 활용이 성적표',
+        body: '스마트공장은 ‘설치’가 아니라\n데이터로 경쟁력을 만드는 운영이 핵심입니다',
+        metrics: [
+          { label: '핵심', value: '현장 활용', tone: 'up', arrow: 'right' },
+        ],
+      },
+    ],
+  },
+  {
     id: 'cn-aw2026-ax-ops',
     title: 'AW 2026이 보여준 전환: 설비 개선 → 운영 혁신',
     date: '2026.08.13',

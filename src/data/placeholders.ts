@@ -30,6 +30,24 @@ export const site = {
 
 export const cardNewsPreview: PreviewItem[] = [
   {
+    id: 'cn-physical-ai-data-2026',
+    title: '피지컬 AI의 첫발: 정부가 공장 데이터를 모은다',
+    date: '2026.08.14',
+    summary: '과기정통부 경남·전북 제조데이터 수집과 범파모 후속 조치 요약',
+  },
+  {
+    id: 'cn-ulsan-ax-sprint-2026',
+    title: '울산, 스마트공장 다음 단계: 자율제조에 71억',
+    date: '2026.08.14',
+    summary: '울산TP AX-Sprint 3개 과제 · 조선·자동차 실증 요약',
+  },
+  {
+    id: 'cn-daejeon-tp-a-grade-2026',
+    title: '대전TP A등급: 스마트공장 이후의 제조 AI가 점수다',
+    date: '2026.08.14',
+    summary: '지역 스마트제조혁신센터 성과평가 A등급 · KPI 160%+ 요약',
+  },
+  {
     id: 'cn-aw2026-ax-ops',
     title: 'AW 2026이 보여준 전환: 설비 개선 → 운영 혁신',
     date: '2026.08.13',
