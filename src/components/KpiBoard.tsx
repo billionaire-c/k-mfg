@@ -1,4 +1,5 @@
 import { useId, useState } from 'react'
+import { EarningsBoard } from './EarningsBoard'
 import {
   kpiMeta,
   kpiSamples,
@@ -202,6 +203,8 @@ export function KpiBoard() {
           지표를 누르면 설명·출처 링크가 열립니다
         </p>
       )}
+
+      <EarningsBoard />
     </section>
   )
 }

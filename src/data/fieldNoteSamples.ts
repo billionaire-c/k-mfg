@@ -28,7 +28,7 @@ export const fieldNoteSamples: FieldNoteSample[] = [
     tags: ['현장', '데이터', '스마트공장'],
     summary:
       '구축은 끝났는데 데이터로 바꾼 행동이 없다면, 가시화 다음 단계—해석과 습관—가 빠진 것일 수 있습니다.',
-    cover: '/card-news/slide-data-panel.png',
+    cover: '/field-notes/fn-data-unused-panel-sketch.jpg',
     body: [
       {
         type: 'p',
@@ -36,7 +36,7 @@ export const fieldNoteSamples: FieldNoteSample[] = [
       },
       {
         type: 'image',
-        src: '/card-news/slide-control-room.png',
+        src: '/field-notes/fn-data-unused-control-sketch.jpg',
         caption: '화면은 켜져 있지만, 다음 행동이 비어 있는 관제실이 생각보다 많다.',
       },
       {
@@ -45,7 +45,7 @@ export const fieldNoteSamples: FieldNoteSample[] = [
       },
       {
         type: 'image',
-        src: '/card-news/slide-data-panel.png',
+        src: '/field-notes/fn-data-unused-panel-sketch.jpg',
         caption: '쌓인 숫자보다 중요한 건, 그 숫자를 열어보는 습관이다.',
       },
       {
@@ -67,7 +67,7 @@ export const fieldNoteSamples: FieldNoteSample[] = [
     tags: ['전시', '운영', 'AX'],
     summary:
       '새 로봇·센서 데모는 화려하지만, 관람객이 더 오래 머문 곳은 “어떻게 돌릴 것인가”를 묻는 부스였습니다.',
-    cover: '/card-news/slide-welding-robot.png',
+    cover: '/field-notes/fn-ops-welding-sketch.jpg',
     body: [
       {
         type: 'p',
@@ -75,7 +75,7 @@ export const fieldNoteSamples: FieldNoteSample[] = [
       },
       {
         type: 'image',
-        src: '/card-news/slide-welding-robot.png',
+        src: '/field-notes/fn-ops-welding-sketch.jpg',
         caption: '데모 라인의 로봇은 ‘가능성’을 보여 준다. 현장은 ‘지속성’을 묻는다.',
       },
       {
@@ -84,7 +84,7 @@ export const fieldNoteSamples: FieldNoteSample[] = [
       },
       {
         type: 'image',
-        src: '/card-news/slide-factory-line.png',
+        src: '/field-notes/fn-ops-line-sketch.jpg',
         caption: '라인은 장비의 합이 아니라, 사람과 규칙이 붙는 시스템이다.',
       },
       {
@@ -106,7 +106,7 @@ export const fieldNoteSamples: FieldNoteSample[] = [
     tags: ['예지보전', 'PoC', '설비'],
     summary:
       '진동 센서는 달렸는데 모델이 안 믿는 이유—라벨·책임·조치 경로가 비어 있었습니다.',
-    cover: '/card-news/slide-quality-parts.png',
+    cover: '/field-notes/fn-pdm-parts-sketch.jpg',
     body: [
       {
         type: 'p',
@@ -114,7 +114,7 @@ export const fieldNoteSamples: FieldNoteSample[] = [
       },
       {
         type: 'image',
-        src: '/card-news/slide-quality-parts.png',
+        src: '/field-notes/fn-pdm-parts-sketch.jpg',
         caption: '부품과 설비는 말없이 신호를 낸다. 문제는 그 신호를 해석할 합의다.',
       },
       {
@@ -123,7 +123,7 @@ export const fieldNoteSamples: FieldNoteSample[] = [
       },
       {
         type: 'image',
-        src: '/card-news/slide-data-panel.png',
+        src: '/field-notes/fn-pdm-alarm-sketch.jpg',
         caption: '빨간 점이 ‘알려 주는 것’과 ‘멈춰도 되는 것’은 다른 문제다.',
       },
       {
