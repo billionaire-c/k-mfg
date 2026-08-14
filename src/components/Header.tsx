@@ -30,9 +30,11 @@ const navItems: NavItem[] = [
     children: [
       { to: '/map', label: '지도' },
       { to: '/policy', label: '지원사업' },
+      { to: '/check', label: '성숙도 체크' },
     ],
   },
   { type: 'link', to: '/glossary', label: '용어' },
+  { type: 'link', to: '/contact', label: '문의' },
   { type: 'link', to: '/guestbook', label: '방명록' },
   { type: 'link', to: '/search', label: '찾기' },
 ]

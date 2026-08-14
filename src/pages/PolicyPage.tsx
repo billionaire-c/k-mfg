@@ -1,5 +1,9 @@
 import { useMemo, useState, type ReactNode } from 'react'
 import {
+  PolicyCalendar,
+  PolicyTimeline,
+} from '../components/PolicyCalendar'
+import {
   PolicyList,
   policyAgencyClass,
   policyStatusClass,
@@ -29,7 +33,10 @@ const statusOrder: Record<PolicyStatus, number> = {
   마감: 2,
 }
 
+type ViewMode = 'list' | 'calendar' | 'timeline'
+
 export function PolicyPage() {
+  const [view, setView] = useState<ViewMode>('calendar')
   const [status, setStatus] = useState<(typeof statusFilters)[number]>('전체')
   const [agency, setAgency] = useState<(typeof agencyFilters)[number]>('전체')
   const [tag, setTag] = useState('전체')
@@ -59,10 +66,34 @@ export function PolicyPage() {
       <h1 className="mb-3 text-2xl font-semibold tracking-tight text-ink md:text-3xl">
         정책·지원사업
       </h1>
-      <p className="mb-8 max-w-xl text-[15px] leading-relaxed text-ink-muted">
-        스마트공장·제조 AI 관련 정부·공공 지원사업을 모아 둡니다. 공고는 수동으로
-        정리하며, 상태·일정은 원문 기준으로 확인해 주세요.
+      <p className="mb-6 max-w-xl text-[15px] leading-relaxed text-ink-muted">
+        스마트공장·제조 AI 관련 정부·공공 지원사업을 모아 둡니다. 캘린더·타임라인으로
+        접수 기간을 한눈에 볼 수 있습니다.
       </p>
+
+      <div className="mb-8 flex flex-wrap gap-2">
+        {(
+          [
+            ['calendar', '캘린더'],
+            ['timeline', '타임라인'],
+            ['list', '목록'],
+          ] as const
+        ).map(([key, label]) => (
+          <button
+            key={key}
+            type="button"
+            onClick={() => setView(key)}
+            className={[
+              'border px-3 py-1.5 text-[13px] transition-colors',
+              view === key
+                ? 'border-teal-700 bg-teal-700 text-white dark:border-teal-400 dark:bg-teal-400 dark:text-ink'
+                : 'border-line text-ink-muted hover:border-ink hover:text-ink',
+            ].join(' ')}
+          >
+            {label}
+          </button>
+        ))}
+      </div>
 
       <div className="mb-8 space-y-4">
         <FilterRow label="상태">
@@ -111,10 +142,13 @@ export function PolicyPage() {
       </div>
 
       <p className="mb-3 text-[12px] text-ink-faint">
-        {items.length.toLocaleString()}건 · 모집·예정 우선 정렬
+        {items.length.toLocaleString()}건
+        {view === 'list' ? ' · 모집·예정 우선 정렬' : ' · 필터 적용'}
       </p>
 
-      <PolicyList items={items} />
+      {view === 'list' ? <PolicyList items={items} /> : null}
+      {view === 'calendar' ? <PolicyCalendar items={items} /> : null}
+      {view === 'timeline' ? <PolicyTimeline items={items} /> : null}
     </div>
   )
 }

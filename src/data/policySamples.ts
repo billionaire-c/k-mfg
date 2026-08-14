@@ -7,6 +7,10 @@ export type PolicySample = {
   agency: string
   agencyGroup: PolicyAgencyGroup
   period: string
+  /** YYYY-MM-DD */
+  startDate: string
+  /** YYYY-MM-DD */
+  endDate: string
   status: PolicyStatus
   summary: string
   url: string
@@ -25,6 +29,8 @@ export const policySamples: PolicySample[] = [
     agency: '산업통상부 · 한국산업기술기획평가원',
     agencyGroup: '산업부',
     period: '2026.08.19 ~ 2026.09.09',
+    startDate: '2026-08-19',
+    endDate: '2026-09-09',
     status: '예정',
     summary:
       '기계장비·제조기반 생산시스템·제조장비 실증 등 AI 팩토리 관련 R&D 과제를 지원합니다. IRIS를 통해 온라인 접수합니다.',
@@ -38,6 +44,8 @@ export const policySamples: PolicySample[] = [
     agency: '산업통상부',
     agencyGroup: '산업부',
     period: '2026.04.30 ~ 2026.05.30',
+    startDate: '2026-04-30',
+    endDate: '2026-05-30',
     status: '마감',
     summary:
       '반도체·자동차·조선 등 주력산업 현장의 제조 AI 전환(M.AX)을 위한 선도과제입니다. 업종·공정 맞춤형 지원 유형으로 공모되었습니다.',
@@ -51,6 +59,8 @@ export const policySamples: PolicySample[] = [
     agency: '중소벤처기업부 · 중소기업기술정보진흥원',
     agencyGroup: '중기부',
     period: '2026.04.27 ~ 2026.06.16',
+    startDate: '2026-04-27',
+    endDate: '2026-06-16',
     status: '마감',
     summary:
       'AI·DT·AAS 등 선도기술을 적용한 자율형공장 기획·구축을 지원합니다. 도입기업 단독 또는 도입–공급–기획 컨소시엄으로 신청합니다.',
@@ -64,6 +74,8 @@ export const policySamples: PolicySample[] = [
     agency: '중소벤처기업부 · 중소기업기술정보진흥원',
     agencyGroup: '중기부',
     period: '2026.04.27 ~ 2026.06.16',
+    startDate: '2026-04-27',
+    endDate: '2026-06-16',
     status: '마감',
     summary:
       '국가 R&D 성과를 제조현장에 적용해 스마트공장을 구축하는 도입·공급 컨소시엄을 지원합니다. 스마트공장 사업관리시스템으로 접수합니다.',
@@ -77,6 +89,8 @@ export const policySamples: PolicySample[] = [
     agency: '중소벤처기업부 · 스마트제조혁신추진단',
     agencyGroup: '중기부',
     period: '2026.03.23 ~ 2026.04.20',
+    startDate: '2026-03-23',
+    endDate: '2026-04-20',
     status: '마감',
     summary:
       '제조 현장의 산업안전·공정·경영 등에 바로 쓸 수 있는 AI 응용제품 상용화를 지원합니다. 도입·공급기업 컨소시엄 중심으로 모집되었습니다.',
@@ -90,6 +104,8 @@ export const policySamples: PolicySample[] = [
     agency: '중소벤처기업부',
     agencyGroup: '중기부',
     period: '2025.12.08 ~ 2026.01.07',
+    startDate: '2025-12-08',
+    endDate: '2026-01-07',
     status: '마감',
     summary:
       '중소·중견 제조기업의 고도화 수준 스마트공장 구축을 지원하는 정부형 사업입니다. 회당 최대 2억 원, 목표수준별 총 2.5억 원 내 지원 구조입니다.',
@@ -98,3 +114,18 @@ export const policySamples: PolicySample[] = [
     updatedAt: '2026.08.14',
   },
 ]
+
+export function policyCoversDate(item: PolicySample, isoDate: string) {
+  return item.startDate <= isoDate && isoDate <= item.endDate
+}
+
+export function policyOverlapsMonth(
+  item: PolicySample,
+  year: number,
+  monthIndex: number,
+) {
+  const monthStart = `${year}-${String(monthIndex + 1).padStart(2, '0')}-01`
+  const lastDay = new Date(year, monthIndex + 1, 0).getDate()
+  const monthEnd = `${year}-${String(monthIndex + 1).padStart(2, '0')}-${String(lastDay).padStart(2, '0')}`
+  return item.startDate <= monthEnd && item.endDate >= monthStart
+}
