@@ -16,24 +16,16 @@ type EngageBucket = {
 
 type EngageStore = Record<string, EngageBucket>
 
-const STORAGE_KEY = 'km-engagement-v1'
+const STORAGE_KEY = 'km-engagement-v2'
 
 function storageKey(kind: EngageKind, id: string) {
   return `${kind}:${id}`
 }
 
-function seedViews(key: string) {
-  let hash = 0
-  for (let i = 0; i < key.length; i += 1) {
-    hash = (hash * 31 + key.charCodeAt(i)) >>> 0
-  }
-  return 40 + (hash % 180)
-}
-
-function emptyBucket(key: string): EngageBucket {
+function emptyBucket(): EngageBucket {
   return {
-    views: seedViews(key),
-    likes: Math.floor(seedViews(key) / 17),
+    views: 0,
+    likes: 0,
     liked: false,
     comments: [],
   }
@@ -56,7 +48,7 @@ function writeStore(store: EngageStore) {
 }
 
 function ensureBucket(store: EngageStore, key: string): EngageBucket {
-  if (!store[key]) store[key] = emptyBucket(key)
+  if (!store[key]) store[key] = emptyBucket()
   return store[key]
 }
 
