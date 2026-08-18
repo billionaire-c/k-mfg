@@ -120,6 +120,7 @@ export function FieldNoteDetailPage() {
       <ContentNav
         listHref="/notes"
         listLabel="현장 노트"
+        currentTitle={note.title}
         detailBase="/notes"
         prev={neighbors.prev}
         next={neighbors.next}

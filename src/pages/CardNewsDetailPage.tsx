@@ -196,6 +196,7 @@ export function CardNewsDetailPage() {
             <ContentNav
               listHref="/card-news"
               listLabel="카드뉴스"
+              currentTitle={sample.title}
               detailBase="/card-news"
               prev={neighbors.prev}
               next={neighbors.next}

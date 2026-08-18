@@ -23,6 +23,35 @@ function formatCount(n: number) {
   return n.toLocaleString('ko-KR')
 }
 
+function ThumbUpIcon({ filled }: { filled: boolean }) {
+  if (filled) {
+    return (
+      <svg
+        viewBox="0 0 24 24"
+        className="h-3.5 w-3.5"
+        aria-hidden
+        fill="currentColor"
+      >
+        <path d="M2 10.5c0-.83.67-1.5 1.5-1.5h3v8h-3A1.5 1.5 0 0 1 2 15.5v-5ZM21.65 10.2c.4-.4.6-.9.55-1.45-.1-1.05-1.05-1.85-2.15-1.85h-4.3l.65-3.1c.15-.7-.1-1.4-.65-1.85-.55-.45-1.3-.5-1.9-.15l-1.05.6c-.35.2-.6.5-.7.9L10.4 7H7.5v8.2l4.35 4.35c.4.4.9.6 1.45.55.55-.05 1.05-.35 1.35-.8l4.85-7.1c.25-.4.35-.85.25-1.3-.05-.2-.15-.4-.3-.55l-.8-.95Z" />
+      </svg>
+    )
+  }
+
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      className="h-3.5 w-3.5"
+      aria-hidden
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      strokeLinejoin="round"
+    >
+      <path d="M7 22V10M2 12v8a2 2 0 0 0 2 2h11.2a3 3 0 0 0 2.9-2.2l1.7-6.2A2 2 0 0 0 17.9 11H14V5.5A2.5 2.5 0 0 0 11.5 3h-.2c-.6 0-1.1.3-1.4.8L7 10" />
+    </svg>
+  )
+}
+
 export function EngagementBar({
   kind,
   id,
@@ -90,12 +119,17 @@ export function EngagementBar({
       <button
         type="button"
         onClick={onLike}
-        className={['transition-colors', hover, liked ? `font-medium ${accent}` : ''].join(
-          ' ',
-        )}
+        className={[
+          'inline-flex items-center gap-1 transition-colors',
+          hover,
+          liked ? `font-medium ${accent}` : '',
+        ].join(' ')}
         aria-pressed={liked}
+        aria-label={liked ? '좋아요 취소' : '좋아요'}
+        title={liked ? '좋아요 취소' : '좋아요'}
       >
-        {liked ? '좋아요 ✓' : '좋아요'} {formatCount(likes)}
+        <ThumbUpIcon filled={liked} />
+        <span>{formatCount(likes)}</span>
       </button>
       {!compact ? (
         <span title="댓글">댓글 {formatCount(comments)}</span>
