@@ -106,24 +106,26 @@ export function HomePage() {
       </section>
 
       <section className="py-8 md:py-10">
-        <SectionHeading
-          eyebrow="Map"
-          title="공급기업 지도"
-          moreHref="/map"
-        />
+        <SectionHeading eyebrow="Map" title="제조 지도" moreHref="/map" />
         <p className="mb-2 inline-block border border-line px-2 py-1 text-[11px] tracking-[0.06em] text-ink-muted">
           공공데이터 기반
         </p>
         <p className="max-w-xl text-[14px] leading-relaxed text-ink-muted">
-          공공데이터포털 자료를 활용한 스마트공장 공급기업 위치를 지도에서
-          검색·확인할 수 있습니다.
+          스마트공장 공급기업과 전국 산업단지 현황을 같은 지도에서 탭으로
+          나눠 볼 수 있습니다. 산단은 시도 단위로 포커스합니다.
         </p>
-        <div className="mt-5">
+        <div className="mt-5 flex flex-wrap gap-4">
           <Link
             to="/map"
             className="text-[13px] text-ink-muted transition-colors hover:text-accent"
           >
-            지도 보기 »
+            공급기업 »
+          </Link>
+          <Link
+            to="/map?tab=parks"
+            className="text-[13px] text-ink-muted transition-colors hover:text-accent"
+          >
+            산업단지 »
           </Link>
         </div>
       </section>
@@ -163,6 +165,32 @@ export function HomePage() {
             className="text-[13px] text-ink-muted transition-colors hover:text-accent"
           >
             표준·인증 안내 »
+          </Link>
+        </div>
+      </section>
+
+      <section className="py-8 md:py-10">
+        <SectionHeading
+          eyebrow="Cases"
+          title="사례·벤치마크"
+          moreHref="/cases"
+        />
+        <p className="max-w-xl text-[14px] leading-relaxed text-ink-muted">
+          자동차·배터리·전자·일반제조에서 SMART공장·AX가 어떻게 작동했는지
+          숫자와 교훈만 모았습니다.
+        </p>
+        <div className="mt-5 flex flex-wrap gap-4">
+          <Link
+            to="/cases"
+            className="text-[13px] text-ink-muted transition-colors hover:text-accent"
+          >
+            사례 보기 »
+          </Link>
+          <Link
+            to="/roadmap"
+            className="text-[13px] text-ink-muted transition-colors hover:text-accent"
+          >
+            도입 로드맵 »
           </Link>
         </div>
       </section>

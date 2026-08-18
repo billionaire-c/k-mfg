@@ -1,9 +1,10 @@
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import {
   getMaturityLevel,
   maturityQuestions,
 } from '../data/maturityCheck'
+import { saveMaturityResult } from '../data/roadmapSamples'
 
 export function MaturityPage() {
   const [answers, setAnswers] = useState<Record<string, number>>({})
@@ -22,6 +23,17 @@ export function MaturityPage() {
   const level = getMaturityLevel(score)
   const maxScore = total * 3
   const progress = Math.round((answeredCount / total) * 100)
+
+  useEffect(() => {
+    if (submitted && answeredCount === total) {
+      saveMaturityResult({
+        levelId: level.id,
+        score,
+        maxScore,
+        updatedAt: new Date().toISOString(),
+      })
+    }
+  }, [submitted, answeredCount, total, level.id, score, maxScore])
 
   const selectChoice = (scoreValue: number) => {
     setAnswers((prev) => ({ ...prev, [current.id]: scoreValue }))
@@ -64,6 +76,19 @@ export function MaturityPage() {
           </div>
         </div>
 
+        <section className="mt-8 border border-line bg-surface/50 px-5 py-5">
+          <h3 className="text-[14px] font-semibold text-ink">다음: 도입 로드맵</h3>
+          <p className="mt-2 text-[14px] leading-relaxed text-ink-muted">
+            진단 단계에 맞춘 12주 실행 순서와 표준·지원·사례 링크를 모아 두었습니다.
+          </p>
+          <Link
+            to={`/roadmap?level=${level.id}`}
+            className="mt-4 inline-flex border border-ink bg-ink px-4 py-2 text-[13px] font-medium text-paper transition hover:opacity-90"
+          >
+            내 도입 로드맵 보기 »
+          </Link>
+        </section>
+
         <section className="mt-10">
           <h3 className="text-[14px] font-semibold text-ink">다음 액션</h3>
           <ul className="mt-3 list-disc space-y-2 pl-5 text-[14px] text-ink-muted">
@@ -76,6 +101,14 @@ export function MaturityPage() {
         <section className="mt-8">
           <h3 className="text-[14px] font-semibold text-ink">이어서 보기</h3>
           <ul className="mt-3 flex flex-wrap gap-3 text-[13px]">
+            <li>
+              <Link
+                to="/cases"
+                className="text-teal-700 underline-offset-2 hover:underline dark:text-teal-300"
+              >
+                사례·벤치마크 »
+              </Link>
+            </li>
             {level.links.map((link) => (
               <li key={link.to}>
                 <Link
@@ -109,8 +142,8 @@ export function MaturityPage() {
         스마트공장 성숙도 체크
       </h1>
       <p className="mb-8 max-w-xl text-[15px] leading-relaxed text-ink-muted">
-        12문항으로 가시화·표준·운영·AI 준비도를 가볍게 점검합니다. 결과는 참고용이며,
-        관련 노트·지원·용어로 이어집니다.
+        12문항으로 가시화·표준·운영·AI 준비도를 가볍게 점검합니다. 결과는 도입
+        로드맵·사례·지원으로 이어집니다.
       </p>
 
       <div className="mb-6">

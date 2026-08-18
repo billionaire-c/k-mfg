@@ -55,7 +55,7 @@ const sitemapGroups: SitemapGroup[] = [
       {
         to: '/map',
         label: '지도',
-        blurb: '스마트공장 공급기업 위치를 지도에서 검색',
+        blurb: '공급기업·산업단지 현황을 탭으로 나눠 지도에서 검색',
       },
       {
         to: '/policy',
@@ -68,9 +68,19 @@ const sitemapGroups: SitemapGroup[] = [
         blurb: 'ISO·IATF·보안·개인정보 인증 안내와 흐름도',
       },
       {
+        to: '/cases',
+        label: '사례·벤치마크',
+        blurb: '업종별 스마트공장·AX 사례와 숫자·교훈',
+      },
+      {
         to: '/check',
         label: '성숙도 체크',
         blurb: '스마트공장 준비도를 간단히 자가진단',
+      },
+      {
+        to: '/roadmap',
+        label: '도입 로드맵',
+        blurb: '진단 결과에 맞춘 12주 실행 순서',
       },
     ],
   },
