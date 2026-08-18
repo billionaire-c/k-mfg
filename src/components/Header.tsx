@@ -10,38 +10,84 @@ type NavLinkItem = {
   end?: boolean
 }
 
+type NavChild = {
+  to: string
+  label: string
+}
+
+type NavSection = {
+  title: string
+  children: NavChild[]
+}
+
 type NavGroupItem = {
   type: 'group'
   label: string
-  children: { to: string; label: string }[]
+  children?: NavChild[]
+  sections?: NavSection[]
 }
 
 type NavItem = NavLinkItem | NavGroupItem
 
 const navItems: NavItem[] = [
   { type: 'link', to: '/', label: '소개', end: true },
-  { type: 'link', to: '/card-news', label: '카드뉴스' },
-  { type: 'link', to: '/notes', label: '현장 노트' },
-  { type: 'link', to: '/insights', label: '인사이트' },
-  { type: 'link', to: '/youtube', label: '유튜브' },
+  {
+    type: 'group',
+    label: '콘텐츠',
+    children: [
+      { to: '/card-news', label: '카드뉴스' },
+      { to: '/notes', label: '현장 노트' },
+      { to: '/insights', label: '인사이트' },
+      { to: '/youtube', label: '유튜브' },
+    ],
+  },
   {
     type: 'group',
     label: '스마트 공장',
-    children: [
-      { to: '/map', label: '지도' },
-      { to: '/policy', label: '지원사업' },
-      { to: '/standards', label: '표준·인증' },
-      { to: '/cases', label: '사례' },
-      { to: '/check', label: '성숙도 체크' },
-      { to: '/roadmap', label: '도입 로드맵' },
+    sections: [
+      {
+        title: '탐색',
+        children: [
+          { to: '/map', label: '지도' },
+          { to: '/policy', label: '지원사업' },
+          { to: '/standards', label: '표준·인증' },
+          { to: '/cases', label: '사례' },
+        ],
+      },
+      {
+        title: '실행',
+        children: [
+          { to: '/check', label: '성숙도 체크' },
+          { to: '/roadmap', label: '도입 로드맵' },
+        ],
+      },
     ],
   },
-  { type: 'link', to: '/glossary', label: '용어' },
-  { type: 'link', to: '/contact', label: '문의' },
-  { type: 'link', to: '/guestbook', label: '방명록' },
-  { type: 'link', to: '/search', label: '찾기' },
-  { type: 'link', to: '/sitemap', label: '사이트맵' },
+  {
+    type: 'group',
+    label: '소통',
+    children: [
+      { to: '/contact', label: '문의' },
+      { to: '/guestbook', label: '방명록' },
+    ],
+  },
+  {
+    type: 'group',
+    label: '더보기',
+    children: [
+      { to: '/glossary', label: '용어' },
+      { to: '/search', label: '찾기' },
+      { to: '/sitemap', label: '사이트맵' },
+    ],
+  },
 ]
+
+function groupPaths(item: NavGroupItem): string[] {
+  if (item.sections) {
+    return item.sections.flatMap((s) => s.children.map((c) => c.to))
+  }
+  return (item.children ?? []).map((c) => c.to)
+}
 
 export function Header() {
   return (
@@ -71,7 +117,7 @@ export function Header() {
                     </NavLink>
                   </li>
                 ) : (
-                  <SmartFactoryMenu key={item.label} item={item} />
+                  <NavDropdown key={item.label} item={item} />
                 ),
               )}
             </ul>
@@ -83,13 +129,12 @@ export function Header() {
   )
 }
 
-function SmartFactoryMenu({ item }: { item: NavGroupItem }) {
+function NavDropdown({ item }: { item: NavGroupItem }) {
   const location = useLocation()
   const [open, setOpen] = useState(false)
   const rootRef = useRef<HTMLLIElement>(null)
-  const childActive = item.children.some((child) =>
-    location.pathname.startsWith(child.to),
-  )
+  const paths = groupPaths(item)
+  const childActive = paths.some((to) => location.pathname.startsWith(to))
 
   useEffect(() => {
     if (!open) return
@@ -132,24 +177,55 @@ function SmartFactoryMenu({ item }: { item: NavGroupItem }) {
       {open ? (
         <ul
           role="menu"
-          className="absolute top-full right-0 z-50 mt-2 min-w-[8.5rem] border border-line bg-paper py-1 shadow-sm"
+          className="absolute top-full right-0 z-50 mt-2 min-w-[9.5rem] border border-line bg-paper py-1 shadow-sm"
         >
-          {item.children.map((child) => (
-            <li key={child.to} role="none">
-              <NavLink
-                role="menuitem"
-                to={child.to}
-                className={({ isActive }) =>
-                  [
-                    'block px-3 py-2 text-[13px] transition-colors hover:bg-surface hover:text-ink',
-                    isActive ? 'font-medium text-ink' : 'text-ink-muted',
-                  ].join(' ')
-                }
-              >
-                {child.label}
-              </NavLink>
-            </li>
-          ))}
+          {item.sections
+            ? item.sections.map((section, sectionIndex) => (
+                <li key={section.title} role="none">
+                  {sectionIndex > 0 ? (
+                    <div className="my-1 border-t border-line" aria-hidden />
+                  ) : null}
+                  <p className="px-3 pt-1.5 pb-0.5 text-[10px] font-medium tracking-[0.08em] text-ink-faint uppercase">
+                    {section.title}
+                  </p>
+                  <ul>
+                    {section.children.map((child) => (
+                      <li key={child.to} role="none">
+                        <NavLink
+                          role="menuitem"
+                          to={child.to}
+                          className={({ isActive }) =>
+                            [
+                              'block px-3 py-2 text-[13px] transition-colors hover:bg-surface hover:text-ink',
+                              isActive
+                                ? 'font-medium text-ink'
+                                : 'text-ink-muted',
+                            ].join(' ')
+                          }
+                        >
+                          {child.label}
+                        </NavLink>
+                      </li>
+                    ))}
+                  </ul>
+                </li>
+              ))
+            : (item.children ?? []).map((child) => (
+                <li key={child.to} role="none">
+                  <NavLink
+                    role="menuitem"
+                    to={child.to}
+                    className={({ isActive }) =>
+                      [
+                        'block px-3 py-2 text-[13px] transition-colors hover:bg-surface hover:text-ink',
+                        isActive ? 'font-medium text-ink' : 'text-ink-muted',
+                      ].join(' ')
+                    }
+                  >
+                    {child.label}
+                  </NavLink>
+                </li>
+              ))}
         </ul>
       ) : null}
     </li>

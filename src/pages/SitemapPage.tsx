@@ -7,24 +7,39 @@ type SitemapEntry = {
   blurb: string
 }
 
+type SitemapSubgroup = {
+  id: string
+  title: string
+  description?: string
+  entries: SitemapEntry[]
+}
+
 type SitemapGroup = {
   id: string
   title: string
   description: string
-  entries: SitemapEntry[]
+  entries?: SitemapEntry[]
+  subgroups?: SitemapSubgroup[]
 }
 
 const sitemapGroups: SitemapGroup[] = [
   {
-    id: 'content',
-    title: '콘텐츠',
-    description: '기록과 인사이트 — 읽고 보는 자료',
+    id: 'about',
+    title: '소개',
+    description: '사이트 소개와 제조 시그널',
     entries: [
       {
         to: '/',
-        label: '소개',
-        blurb: '사이트 소개, 제조 시그널, 주요 콘텐츠 미리보기',
+        label: '홈',
+        blurb: '소개, 제조 시그널, 콘텐츠 하이라이트와 스마트 공장 바로가기',
       },
+    ],
+  },
+  {
+    id: 'content',
+    title: '콘텐츠',
+    description: '읽고 보는 기록',
+    entries: [
       {
         to: '/card-news',
         label: '카드뉴스',
@@ -51,49 +66,58 @@ const sitemapGroups: SitemapGroup[] = [
     id: 'smart',
     title: '스마트 공장',
     description: '진단·탐색·실행을 돕는 도구형 메뉴',
-    entries: [
+    subgroups: [
       {
-        to: '/map',
-        label: '지도',
-        blurb: '공급기업·산업단지 현황을 탭으로 나눠 지도에서 검색',
+        id: 'explore',
+        title: '탐색',
+        description: '현황·정책·기준·사례를 찾아보기',
+        entries: [
+          {
+            to: '/map',
+            label: '지도',
+            blurb: '공급기업·산업단지 현황을 탭으로 나눠 지도에서 검색',
+          },
+          {
+            to: '/policy',
+            label: '지원사업',
+            blurb: '중기부·산업부 등 정책·공고 큐레이션',
+          },
+          {
+            to: '/standards',
+            label: '표준·인증',
+            blurb: 'ISO·IATF·보안·개인정보 인증 안내와 흐름도',
+          },
+          {
+            to: '/cases',
+            label: '사례·벤치마크',
+            blurb: '업종별 스마트공장·AX 사례와 숫자·교훈',
+          },
+        ],
       },
       {
-        to: '/policy',
-        label: '지원사업',
-        blurb: '중기부·산업부 등 정책·공고 큐레이션',
-      },
-      {
-        to: '/standards',
-        label: '표준·인증',
-        blurb: 'ISO·IATF·보안·개인정보 인증 안내와 흐름도',
-      },
-      {
-        to: '/cases',
-        label: '사례·벤치마크',
-        blurb: '업종별 스마트공장·AX 사례와 숫자·교훈',
-      },
-      {
-        to: '/check',
-        label: '성숙도 체크',
-        blurb: '스마트공장 준비도를 간단히 자가진단',
-      },
-      {
-        to: '/roadmap',
-        label: '도입 로드맵',
-        blurb: '진단 결과에 맞춘 12주 실행 순서',
+        id: 'act',
+        title: '실행',
+        description: '진단하고 다음 단계를 잡기',
+        entries: [
+          {
+            to: '/check',
+            label: '성숙도 체크',
+            blurb: '스마트공장 준비도를 간단히 자가진단',
+          },
+          {
+            to: '/roadmap',
+            label: '도입 로드맵',
+            blurb: '진단 결과에 맞춘 12주 실행 순서',
+          },
+        ],
       },
     ],
   },
   {
-    id: 'ref',
-    title: '참고·소통',
-    description: '용어, 문의, 방명록, 검색',
+    id: 'talk',
+    title: '소통',
+    description: '협업·방문 기록',
     entries: [
-      {
-        to: '/glossary',
-        label: '용어',
-        blurb: '스마트제조·AX 관련 용어 해설',
-      },
       {
         to: '/contact',
         label: '문의',
@@ -103,6 +127,18 @@ const sitemapGroups: SitemapGroup[] = [
         to: '/guestbook',
         label: '방명록',
         blurb: '방문 기록과 짧은 메시지',
+      },
+    ],
+  },
+  {
+    id: 'more',
+    title: '더보기',
+    description: '참고·검색·구조 안내',
+    entries: [
+      {
+        to: '/glossary',
+        label: '용어',
+        blurb: '스마트제조·AX 관련 용어 해설',
       },
       {
         to: '/search',
@@ -122,10 +158,25 @@ export function SitemapPage() {
   const [openGroups, setOpenGroups] = useState<Record<string, boolean>>(() =>
     Object.fromEntries(sitemapGroups.map((g) => [g.id, true])),
   )
+  const [openSubgroups, setOpenSubgroups] = useState<Record<string, boolean>>(
+    () => {
+      const init: Record<string, boolean> = {}
+      sitemapGroups.forEach((g) => {
+        g.subgroups?.forEach((s) => {
+          init[`${g.id}:${s.id}`] = true
+        })
+      })
+      return init
+    },
+  )
   const [openLeaves, setOpenLeaves] = useState<Record<string, boolean>>({})
 
   const toggleGroup = (id: string) => {
     setOpenGroups((prev) => ({ ...prev, [id]: !prev[id] }))
+  }
+
+  const toggleSubgroup = (key: string) => {
+    setOpenSubgroups((prev) => ({ ...prev, [key]: !prev[key] }))
   }
 
   const toggleLeaf = (key: string) => {
@@ -134,10 +185,18 @@ export function SitemapPage() {
 
   const expandAll = () => {
     setOpenGroups(Object.fromEntries(sitemapGroups.map((g) => [g.id, true])))
+    const subs: Record<string, boolean> = {}
+    sitemapGroups.forEach((g) => {
+      g.subgroups?.forEach((s) => {
+        subs[`${g.id}:${s.id}`] = true
+      })
+    })
+    setOpenSubgroups(subs)
   }
 
   const collapseAll = () => {
     setOpenGroups(Object.fromEntries(sitemapGroups.map((g) => [g.id, false])))
+    setOpenSubgroups({})
     setOpenLeaves({})
   }
 
@@ -150,7 +209,7 @@ export function SitemapPage() {
         사이트맵
       </h1>
       <p className="mt-3 max-w-xl text-[15px] leading-relaxed text-ink-muted">
-        K-Manufacturing 메뉴 구조를 트리로 안내합니다. 그룹·항목을 접거나 펼쳐
+        헤더와 같은 메뉴 레벨로 정리했습니다. 그룹·하위 그룹·항목을 접거나 펼쳐
         보세요.
       </p>
 
@@ -172,7 +231,6 @@ export function SitemapPage() {
       </div>
 
       <div className="mt-8 border border-line bg-surface/30 px-3 py-4 font-sans md:px-5 md:py-5">
-        {/* Root */}
         <div className="flex items-center gap-2 border-b border-line pb-3">
           <span
             className="inline-flex h-6 w-6 items-center justify-center border border-accent bg-accent text-[11px] text-paper"
@@ -222,51 +280,89 @@ export function SitemapPage() {
 
                     {open ? (
                       <ul className="ml-2 border-l border-line pl-3" role="group">
-                        {group.entries.map((entry, entryIndex) => {
-                          const leafKey = `${group.id}:${entry.to}`
-                          const leafOpen = openLeaves[leafKey] ?? false
-                          const isLast =
-                            entryIndex === group.entries.length - 1
-
-                          return (
-                            <li key={leafKey} className="relative">
-                              <div
-                                className={[
-                                  'absolute top-0 -left-3 h-4 w-3 border-b border-line',
-                                  isLast ? '' : '',
-                                ].join(' ')}
-                                aria-hidden
-                              />
-                              <div className="flex items-start gap-1 py-1">
-                                <button
-                                  type="button"
-                                  onClick={() => toggleLeaf(leafKey)}
-                                  className="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center border border-line text-[10px] text-ink-faint transition-colors hover:text-ink"
-                                  aria-expanded={leafOpen}
-                                  aria-label={`${entry.label} 설명 ${leafOpen ? '접기' : '펼치기'}`}
+                        {group.subgroups
+                          ? group.subgroups.map((sub, subIndex) => {
+                              const subKey = `${group.id}:${sub.id}`
+                              const subOpen = openSubgroups[subKey] ?? false
+                              const isLastSub =
+                                subIndex === (group.subgroups?.length ?? 0) - 1
+                              return (
+                                <li
+                                  key={subKey}
+                                  role="treeitem"
+                                  aria-expanded={subOpen}
+                                  className="relative"
                                 >
-                                  {leafOpen ? '−' : '+'}
-                                </button>
-                                <div className="min-w-0 flex-1">
-                                  <Link
-                                    to={entry.to}
-                                    className="text-[13px] font-medium text-ink transition-colors hover:text-accent"
+                                  <div
+                                    className="absolute top-0 -left-3 h-4 w-3 border-b border-line"
+                                    aria-hidden
+                                  />
+                                  <button
+                                    type="button"
+                                    onClick={() => toggleSubgroup(subKey)}
+                                    className="flex w-full items-start gap-2 py-1.5 text-left transition-colors hover:bg-surface"
                                   >
-                                    {entry.label}
-                                    <span className="ml-2 text-[11px] font-normal text-ink-faint">
-                                      {entry.to === '/' ? '/' : entry.to}
+                                    <span
+                                      className="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center border border-line text-[10px] text-ink-muted"
+                                      aria-hidden
+                                    >
+                                      {subOpen ? '−' : '+'}
                                     </span>
-                                  </Link>
-                                  {leafOpen ? (
-                                    <p className="mt-1 text-[12px] leading-relaxed text-ink-muted">
-                                      {entry.blurb}
-                                    </p>
+                                    <span className="min-w-0">
+                                      <span className="block text-[13px] font-semibold text-ink">
+                                        {sub.title}
+                                      </span>
+                                      {sub.description ? (
+                                        <span className="mt-0.5 block text-[11px] text-ink-faint">
+                                          {sub.description}
+                                        </span>
+                                      ) : null}
+                                    </span>
+                                  </button>
+                                  {subOpen ? (
+                                    <ul
+                                      className={[
+                                        'ml-2 border-l border-line pl-3',
+                                        isLastSub ? 'mb-1' : '',
+                                      ].join(' ')}
+                                      role="group"
+                                    >
+                                      {sub.entries.map((entry, entryIndex) => (
+                                        <EntryLeaf
+                                          key={`${subKey}:${entry.to}`}
+                                          leafKey={`${subKey}:${entry.to}`}
+                                          entry={entry}
+                                          isLast={
+                                            entryIndex ===
+                                            sub.entries.length - 1
+                                          }
+                                          open={
+                                            openLeaves[
+                                              `${subKey}:${entry.to}`
+                                            ] ?? false
+                                          }
+                                          onToggle={toggleLeaf}
+                                        />
+                                      ))}
+                                    </ul>
                                   ) : null}
-                                </div>
-                              </div>
-                            </li>
-                          )
-                        })}
+                                </li>
+                              )
+                            })
+                          : (group.entries ?? []).map((entry, entryIndex) => (
+                              <EntryLeaf
+                                key={`${group.id}:${entry.to}`}
+                                leafKey={`${group.id}:${entry.to}`}
+                                entry={entry}
+                                isLast={
+                                  entryIndex === (group.entries?.length ?? 0) - 1
+                                }
+                                open={
+                                  openLeaves[`${group.id}:${entry.to}`] ?? false
+                                }
+                                onToggle={toggleLeaf}
+                              />
+                            ))}
                       </ul>
                     ) : null}
                   </div>
@@ -277,6 +373,59 @@ export function SitemapPage() {
         </ul>
       </div>
     </div>
+  )
+}
+
+function EntryLeaf({
+  leafKey,
+  entry,
+  isLast,
+  open,
+  onToggle,
+}: {
+  leafKey: string
+  entry: SitemapEntry
+  isLast: boolean
+  open: boolean
+  onToggle: (key: string) => void
+}) {
+  return (
+    <li className="relative">
+      <div
+        className={[
+          'absolute top-0 -left-3 h-4 w-3 border-b border-line',
+          isLast ? '' : '',
+        ].join(' ')}
+        aria-hidden
+      />
+      <div className="flex items-start gap-1 py-1">
+        <button
+          type="button"
+          onClick={() => onToggle(leafKey)}
+          className="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center border border-line text-[10px] text-ink-faint transition-colors hover:text-ink"
+          aria-expanded={open}
+          aria-label={`${entry.label} 설명 ${open ? '접기' : '펼치기'}`}
+        >
+          {open ? '−' : '+'}
+        </button>
+        <div className="min-w-0 flex-1">
+          <Link
+            to={entry.to}
+            className="text-[13px] font-medium text-ink transition-colors hover:text-accent"
+          >
+            {entry.label}
+            <span className="ml-2 text-[11px] font-normal text-ink-faint">
+              {entry.to === '/' ? '/' : entry.to}
+            </span>
+          </Link>
+          {open ? (
+            <p className="mt-1 text-[12px] leading-relaxed text-ink-muted">
+              {entry.blurb}
+            </p>
+          ) : null}
+        </div>
+      </div>
+    </li>
   )
 }
 
