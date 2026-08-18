@@ -1,12 +1,20 @@
 import { useEffect, useState } from 'react'
 import { Link, Navigate, useParams } from 'react-router-dom'
 import { BarChart, MetricRow } from '../components/CardSlideVisuals'
-import { getCardNewsSample } from '../data/cardNewsSamples'
+import { CommentSection } from '../components/CommentSection'
+import { ContentNav } from '../components/ContentNav'
+import { EngagementBar } from '../components/EngagementBar'
+import {
+  cardNewsSamples,
+  getCardNewsSample,
+} from '../data/cardNewsSamples'
+import { getNeighbors } from '../lib/engagement'
 
 export function CardNewsDetailPage() {
   const { id = '' } = useParams()
   const sample = getCardNewsSample(id)
   const [index, setIndex] = useState(0)
+  const neighbors = getNeighbors(cardNewsSamples, id)
 
   useEffect(() => {
     setIndex(0)
@@ -30,7 +38,7 @@ export function CardNewsDetailPage() {
         <div>
           <div className="mb-4 flex items-center justify-between gap-3 text-[13px] text-[#676f7b]">
             <Link to="/card-news" className="font-semibold text-[#1a1a1a] hover:opacity-70">
-              ← 카드뉴스
+              ← 목록보기
             </Link>
             <span>
               {index + 1} / {total}
@@ -170,6 +178,28 @@ export function CardNewsDetailPage() {
                 ].join(' ')}
               />
             ))}
+          </div>
+
+          <div className="mt-6 border-t border-[#e7eaf0] pt-5">
+            <EngagementBar
+              kind="card-news"
+              id={sample.id}
+              title={sample.title}
+              summary={sample.summary}
+              trackView
+              onLight
+            />
+          </div>
+
+          <div className="text-[#030303] [&_.border-line]:border-[#e7eaf0] [&_.text-ink]:text-[#030303] [&_.text-ink-muted]:text-[#676f7b] [&_.text-ink-faint]:text-[#939393] [&_.bg-paper]:bg-white [&_.border-ink]:border-[#030303] [&_.bg-ink]:bg-[#030303] [&_.text-paper]:text-white [&_.text-accent]:text-[#2c4a3e]">
+            <CommentSection kind="card-news" id={sample.id} />
+            <ContentNav
+              listHref="/card-news"
+              listLabel="카드뉴스"
+              detailBase="/card-news"
+              prev={neighbors.prev}
+              next={neighbors.next}
+            />
           </div>
         </div>
 

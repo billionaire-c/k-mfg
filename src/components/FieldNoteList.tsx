@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { EngagementBar } from './EngagementBar'
 import type { FieldNoteSample } from '../data/fieldNoteSamples'
 
 type FieldNoteListProps = {
@@ -59,6 +60,15 @@ export function FieldNoteList({ items }: FieldNoteListProps) {
               </p>
             </div>
           </Link>
+          <div className="mt-3 md:pl-[6.5rem]">
+            <EngagementBar
+              kind="notes"
+              id={item.id}
+              title={item.title}
+              summary={item.summary}
+              compact
+            />
+          </div>
         </li>
       ))}
     </ul>

@@ -1,10 +1,18 @@
 import { Link, Navigate, useParams } from 'react-router-dom'
+import { CommentSection } from '../components/CommentSection'
+import { ContentNav } from '../components/ContentNav'
+import { EngagementBar } from '../components/EngagementBar'
 import { FieldNoteRichText } from '../components/FieldNoteRichText'
-import { getFieldNoteSample } from '../data/fieldNoteSamples'
+import {
+  fieldNoteSamples,
+  getFieldNoteSample,
+} from '../data/fieldNoteSamples'
+import { getNeighbors } from '../lib/engagement'
 
 export function FieldNoteDetailPage() {
   const { id = '' } = useParams()
   const note = getFieldNoteSample(id)
+  const neighbors = getNeighbors(fieldNoteSamples, id)
 
   if (!note) return <Navigate to="/notes" replace />
 
@@ -14,7 +22,7 @@ export function FieldNoteDetailPage() {
         to="/notes"
         className="text-[13px] font-medium text-ink-muted transition-colors hover:text-ink"
       >
-        ← 현장 노트
+        ← 목록보기
       </Link>
 
       <div className="mt-8 flex flex-wrap items-center gap-2">
@@ -35,6 +43,14 @@ export function FieldNoteDetailPage() {
         {note.title}
       </h1>
       <p className="mt-3 text-[13px] text-ink-faint">{note.date}</p>
+
+      <EngagementBar
+        kind="notes"
+        id={note.id}
+        title={note.title}
+        summary={note.summary}
+        trackView
+      />
 
       <figure className="mt-8 overflow-hidden border border-line bg-surface">
         <img
@@ -99,6 +115,15 @@ export function FieldNoteDetailPage() {
           </ul>
         </div>
       ) : null}
+
+      <CommentSection kind="notes" id={note.id} />
+      <ContentNav
+        listHref="/notes"
+        listLabel="현장 노트"
+        detailBase="/notes"
+        prev={neighbors.prev}
+        next={neighbors.next}
+      />
     </div>
   )
 }

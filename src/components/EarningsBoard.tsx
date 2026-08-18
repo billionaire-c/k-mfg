@@ -44,8 +44,10 @@ function previousQuarter(company: CompanyEarnings): EarningsQuarter | null {
 }
 
 function DualBars({ quarters }: { quarters: EarningsQuarter[] }) {
-  const maxRev = Math.max(...quarters.map((q) => q.revenue), 0.01)
-  const maxOp = Math.max(
+  // 매출·영업이익을 같은 축(조원)으로 비교 — 시리즈별 최댓값 분리 시
+  // 최신 분기 영업이익이 매출과 같은 높이로 보여 왜곡됨
+  const maxVal = Math.max(
+    ...quarters.map((q) => q.revenue),
     ...quarters.map((q) => Math.abs(q.operatingProfit)),
     0.01,
   )
@@ -64,17 +66,16 @@ function DualBars({ quarters }: { quarters: EarningsQuarter[] }) {
           />
           영업이익
         </span>
-        <span>단위 {earningsMeta.unit}</span>
+        <span>단위 {earningsMeta.unit} · 동일 축</span>
       </div>
 
       <div className="grid grid-cols-4 gap-2 border-t border-line pt-3 md:gap-3">
         {quarters.map((q) => {
-          const revH = Math.max(8, Math.round((q.revenue / maxRev) * 100))
-          const opRatio = Math.abs(q.operatingProfit) / maxOp
-          const opH = Math.max(
-            q.operatingProfit === 0 ? 0 : 6,
-            Math.round(opRatio * 100),
-          )
+          const revH = Math.max(4, Math.round((q.revenue / maxVal) * 100))
+          const opH =
+            q.operatingProfit === 0
+              ? 0
+              : Math.max(4, Math.round((Math.abs(q.operatingProfit) / maxVal) * 100))
           const loss = q.operatingProfit < 0
 
           return (

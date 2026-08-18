@@ -68,20 +68,20 @@ export function HomePage() {
 
       <section className="py-8 md:py-10">
         <SectionHeading
-          eyebrow="Insights"
-          title="인사이트"
-          moreHref="/insights"
-        />
-        <InsightList items={insightSamples.slice(0, 2)} />
-      </section>
-
-      <section className="py-8 md:py-10">
-        <SectionHeading
           eyebrow="Field Notes"
           title="현장 노트"
           moreHref="/notes"
         />
         <FieldNoteList items={fieldNoteSamples.slice(0, 2)} />
+      </section>
+
+      <section className="py-8 md:py-10">
+        <SectionHeading
+          eyebrow="Insights"
+          title="인사이트"
+          moreHref="/insights"
+        />
+        <InsightList items={insightSamples.slice(0, 2)} />
       </section>
 
       <section className="py-8 md:py-10">

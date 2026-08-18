@@ -31,14 +31,14 @@ const sitemapGroups: SitemapGroup[] = [
         blurb: '짧은 슬라이드로 보는 제조·정책 이슈',
       },
       {
-        to: '/insights',
-        label: '인사이트',
-        blurb: '논문·리뷰 기반의 조금 더 긴 해설',
-      },
-      {
         to: '/notes',
         label: '현장 노트',
         blurb: '현장 관찰을 스케치와 함께 남긴 기록',
+      },
+      {
+        to: '/insights',
+        label: '인사이트',
+        blurb: '논문·리뷰 기반의 조금 더 긴 해설',
       },
       {
         to: '/youtube',

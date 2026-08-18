@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { EngagementBar } from './EngagementBar'
 import type { CardNewsSample } from '../data/cardNewsSamples'
 
 type CardNewsGridProps = {
@@ -36,6 +37,13 @@ export function CardNewsGrid({ items }: CardNewsGridProps) {
               {item.topic} · {item.date}
             </p>
           </Link>
+          <EngagementBar
+            kind="card-news"
+            id={item.id}
+            title={item.title}
+            summary={item.summary}
+            compact
+          />
         </li>
       ))}
     </ul>

@@ -22,6 +22,123 @@ export type FieldNoteSample = {
  */
 export const fieldNoteSamples: FieldNoteSample[] = [
   {
+    id: 'fn-shift-handover-2026',
+    title: '교대 인수인계가 약한 공장의 대시보드가 빛나지 않는 이유',
+    date: '2026.08.18',
+    tags: ['현장', '운영', '교대'],
+    summary:
+      '주간 지표는 괜찮은데 야간이 흔들립니다. 문제는 화면이 아니라, 다음 교대에 넘기는 한 줄이었습니다.',
+    cover: '/field-notes/fn-data-unused-control-sketch.jpg',
+    body: [
+      {
+        type: 'p',
+        text: '어떤 공장은 대시보드가 정말 예쁩니다. ``OEE``도 있고, 불량률도 있고, 알람도 색으로 구분됩니다. 그런데 **야간 교대 실적만 보면 패턴이 깨집니다.**',
+      },
+      {
+        type: 'image',
+        src: '/field-notes/fn-data-unused-control-sketch.jpg',
+        caption: '화면은 공유되지만, 맥락은 교대 노트에 남아 있지 않을 때가 많다.',
+      },
+      {
+        type: 'p',
+        text: '현장에서 들은 말은 단순했습니다. ==“주간에 본 이상 징후를 야간에 모릅니다.”== 인수인계는 구두로 끝나고, 시스템은 ‘지금’만 보여 줍니다.',
+      },
+      {
+        type: 'image',
+        src: '/field-notes/fn-pdm-alarm-sketch.jpg',
+        caption: '알람 이력보다, ‘누가 어디까지 조치했는지’가 다음 교대의 출발점이다.',
+      },
+      {
+        type: 'p',
+        text: '그래서 요즘은 화려한 KPI보다 **교대 인수 템플릿 한 장**을 먼저 권합니다. 이상 · 조치 · 미결 · 담당. ==네 칸이면 충분==한 경우가 많습니다.',
+      },
+    ],
+    takeaway:
+      '스마트공장의 연속성은 **센서**가 아니라 ==교대 사이의 한 줄==에서 시작됩니다.',
+    related: [
+      { label: '용어 · OEE', to: '/glossary' },
+      { label: '성숙도 체크', to: '/check' },
+    ],
+  },
+  {
+    id: 'fn-vendor-lock-mes-2026',
+    title: 'MES 데모는 쉬운데, 데이터 소유권 이야기가 나오면 분위기가 바뀐다',
+    date: '2026.08.17',
+    tags: ['MES', '공급사', '계약'],
+    summary:
+      '구축 견적보다 먼저 물어야 할 것—우리 공장 데이터는 누가, 어떤 형식으로, 떠날 때 가져가나.',
+    cover: '/field-notes/fn-data-unused-panel-sketch.jpg',
+    body: [
+      {
+        type: 'p',
+        text: '공급사 데모는 늘 매끄럽습니다. 화면 전환도 빠르고, 레포트도 예쁩니다. 그런데 **“데이터 추출 API는요?”**라고 묻는 순간, 미팅룸 공기가 달라질 때가 있습니다.',
+      },
+      {
+        type: 'image',
+        src: '/field-notes/fn-data-unused-panel-sketch.jpg',
+        caption: '보이는 화면과, 가져갈 수 있는 데이터는 다른 계층이다.',
+      },
+      {
+        type: 'p',
+        text: '중소 공장에서 자주 놓치는 건 ==종료·이관 조건==입니다. 계약서에 ‘데이터는 고객 자산’이라고만 있고, **포맷·주기·책임자**가 없으면 나중에 묶입니다.',
+      },
+      {
+        type: 'image',
+        src: '/field-notes/fn-ops-line-sketch.jpg',
+        caption: '라인은 남고 시스템은 바뀐다. 그 사이에 데이터가 끊기면 학습도 끊긴다.',
+      },
+      {
+        type: 'p',
+        text: '저는 킥오프 전에 세 줄을 적게 합니다. ==① 원천 데이터 목록==, ==② 내보내기 형식==, ==③ 계약 종료 시 이관 일정==. ``MES`` 고도화보다 먼저인 경우도 있습니다.',
+      },
+    ],
+    takeaway:
+      '잠금(lock-in)은 기능이 아니라 ==떠날 때 데이터를 못 가져가는 구조==에서 생깁니다.',
+    related: [
+      { label: '공급기업 지도', to: '/map' },
+      { label: '표준·인증', to: '/standards' },
+    ],
+  },
+  {
+    id: 'fn-energy-kpi-blind-2026',
+    title: '전력비가 올라도, 라인 KPI에는 에너지가 없는 공장들',
+    date: '2026.08.16',
+    tags: ['에너지', 'KPI', '원가'],
+    summary:
+      '생산성 지표는 매일 보는데 전력·압축공기 원단위는 월말에야 봅니다. 그 간극이 원가 깜깜이입니다.',
+    cover: '/field-notes/fn-ops-welding-sketch.jpg',
+    body: [
+      {
+        type: 'p',
+        text: '최근 상담에서 공통으로 듣는 말이 있습니다. **“전기요금은 올랐는데, 어느 라인이 먹는지 모릅니다.”** 생산 ``KPI``는 실시간인데, 에너지는 고지서가 도착해야 보입니다.',
+      },
+      {
+        type: 'image',
+        src: '/field-notes/fn-ops-welding-sketch.jpg',
+        caption: '스파크는 눈에 보이지만, kWh는 집계 체계가 없으면 보이지 않는다.',
+      },
+      {
+        type: 'p',
+        text: '스마트공장 고도화 과제에 ==에너지 원단위==를 넣으면, 반응이 둘로 갈립니다. ‘좋은데 센서가…’와 ‘일단 분전반부터’. 후자가 더 빨랐던 현장이 많았습니다.',
+      },
+      {
+        type: 'image',
+        src: '/field-notes/fn-pdm-parts-sketch.jpg',
+        caption: '정밀 측정도 중요하지만, 먼저는 어느 구역이 얼마나 쓰는지 구역 단위 집계면 충분하다.',
+      },
+      {
+        type: 'p',
+        text: '완벽한 ISO 50001보다, **주간 원단위 한 줄**이 회의를 바꿉니다. ==생산량 옆에 kWh==를 나란히 두면, 야간 공회전 이야기가 자연스럽게 나옵니다.',
+      },
+    ],
+    takeaway:
+      '에너지 가시화는 친환경 구호가 아니라, ==원가를 라인 언어로 번역==하는 일입니다.',
+    related: [
+      { label: '지원사업 보기', to: '/policy' },
+      { label: '용어 · KPI', to: '/glossary' },
+    ],
+  },
+  {
     id: 'fn-data-unused-2026',
     title: '스마트공장을 만들었는데, 데이터는 왜 안 쓰일까',
     date: '2026.08.14',

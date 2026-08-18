@@ -50,6 +50,155 @@ export type CardNewsSample = {
  */
 export const cardNewsSamples: CardNewsSample[] = [
   {
+    id: 'cn-ess-ai-datacenter-2026',
+    title: 'AI 데이터센터가 당긴 ESS: 배터리 공장의 새 주문',
+    date: '2026.08.18',
+    summary:
+      'EV 수요 둔화 속에 ESS·데이터센터 전력이 제조 배터리 라인의 새 축이 되고 있습니다. 출하 믹스 변화가 공장 운영에 의미하는 바를 정리했습니다.',
+    topic: '배터리 · ESS',
+    issue: '08월-04',
+    cover: '/card-news/cn-ess-ai-datacenter-2026.png',
+    sources: [
+      {
+        name: 'LG에너지솔루션 실적',
+        url: 'https://www.newswire.co.kr/newsRead.php?no=1039662',
+      },
+    ],
+    slides: [
+      {
+        layout: 'cover',
+        eyebrow: '08월-04',
+        title: '배터리 라인의\n새 주문처',
+        body: 'ESS · AI 데이터센터',
+        image: '/card-news/cn-ess-ai-datacenter-2026.png',
+      },
+      {
+        layout: 'text',
+        eyebrow: '변화',
+        title: 'EV만으로는\n라인이 안 돈다',
+        body: '중저가 EV·원통형·ESS로\n출하 믹스가 빠르게 바뀌는 중',
+        metrics: [
+          { label: '초점', value: 'ESS', tone: 'up', arrow: 'up' },
+          { label: '동력', value: 'AI DC', tone: 'up', arrow: 'right' },
+        ],
+      },
+      {
+        layout: 'split',
+        eyebrow: '현장',
+        title: '캐파를\n옮기는 공장',
+        body: 'EV 라인을 ESS로 전환하거나\n북미 생산능력을 재배치하는 사례 증가',
+        image: '/card-news/slide-control-room.png',
+        highlight: '수요 변화 → 설비·인력 재배치가 동시에 움직임',
+      },
+      {
+        layout: 'text',
+        eyebrow: '시사점',
+        title: '스마트공장은\n‘무엇을 만드나’에 묶인다',
+        body: '제품 믹스가 바뀌면 MES·품질·에너지 KPI도\n함께 다시 설계해야 합니다.',
+        highlight: '운영 설계 없이 캐파만 옮기면 병목이 따라옵니다.',
+      },
+    ],
+  },
+  {
+    id: 'cn-hyundai-q2-ops-2026',
+    title: '현대차 2분기: 매출은 최대, 이익은 줄었다',
+    date: '2026.08.18',
+    summary:
+      '분기 최대 매출 뒤에 부품 차질·원가·관세가 겹쳤습니다. 숫자보다 ‘생산 안정성’이 다시 전면에 나온 실적을 요약합니다.',
+    topic: '자동차 · 실적',
+    issue: '08월-05',
+    cover: '/card-news/cn-hyundai-q2-ops-2026.png',
+    sources: [
+      {
+        name: '현대차그룹 실적',
+        url: 'https://www.hyundaimotorgroup.com/ko/news/hyundai-motor-company-2026-q2-earnings',
+      },
+    ],
+    slides: [
+      {
+        layout: 'cover',
+        eyebrow: '08월-05',
+        title: '매출 신기록,\n수익은 눌림',
+        body: '현대차 2026.2Q',
+        image: '/card-news/cn-hyundai-q2-ops-2026.png',
+      },
+      {
+        layout: 'text',
+        eyebrow: '숫자',
+        title: '매출 49.2조\n영업이익 2.85조',
+        body: '매출은 전년비 +1.9%\n영업이익은 −20.8%',
+        metrics: [
+          { label: '매출', value: '49.2조', tone: 'up', arrow: 'up' },
+          { label: '영업익', value: '−20.8%', tone: 'down', arrow: 'down' },
+        ],
+      },
+      {
+        layout: 'split',
+        eyebrow: '원인',
+        title: '화재·원자재·관세',
+        body: '부품사 화재로 생산 차질,\n원가와 판매관리비가 동시에 상승',
+        image: '/card-news/slide-quality-parts.png',
+        highlight: '하이브리드 호조만으로는 이익률을 못 지탱',
+      },
+      {
+        layout: 'text',
+        eyebrow: '현장 언어',
+        title: '가동률보다\n공급망 복원력',
+        body: '스마트공장 KPI에\n‘대체 공급·안전 재고’ 항목이 다시 올라옵니다.',
+      },
+    ],
+  },
+  {
+    id: 'cn-iso-security-ot-2026',
+    title: '스마트공장이 커질수록, 보안 인증이 따라온다',
+    date: '2026.08.17',
+    summary:
+      '원격 관제·클라우드 MES가 늘수록 ISO 27001·ISMS 요구가 품질 인증 다음 과제로 올라옵니다. 현장에서 먼저 묻는 질문만 골랐습니다.',
+    topic: '표준 · 보안',
+    issue: '08월-06',
+    cover: '/card-news/cn-iso-security-ot-2026.png',
+    sources: [
+      {
+        name: 'K-Manufacturing 표준·인증',
+        url: '/standards',
+      },
+    ],
+    slides: [
+      {
+        layout: 'cover',
+        eyebrow: '08월-06',
+        title: '품질 다음엔\n보안이다',
+        body: 'ISO 27001 · ISMS',
+        image: '/card-news/cn-iso-security-ot-2026.png',
+      },
+      {
+        layout: 'text',
+        eyebrow: '왜 지금',
+        title: 'OT와 IT가\n한 화면으로',
+        body: '도면·레시피·원격 알람이\n외부망을 타기 시작했습니다.',
+        metrics: [
+          { label: '출발', value: '9001', tone: 'neutral' },
+          { label: '다음', value: '27001', tone: 'up', arrow: 'right' },
+        ],
+      },
+      {
+        layout: 'split',
+        eyebrow: '체크',
+        title: '인증 전에\n묻는 세 가지',
+        body: '자산 목록 · 접근 권한 ·\n사고 시 에스컬레이션',
+        image: '/card-news/slide-control-room.png',
+        highlight: '문서만 있으면 감사에 통과해도 현장은 그대로입니다.',
+      },
+      {
+        layout: 'text',
+        eyebrow: '연결',
+        title: '표준 안내에서\n경로 고르기',
+        body: '자동차·개인정보·클라우드 연동 여부에 따라\n인증 경로가 달라집니다.',
+        highlight: '사이트 표준·인증 플로우에서 바로 확인해 보세요.',
+      },
+    ],
+  },
+  {
     id: 'cn-physical-ai-data-2026',
     title: '피지컬 AI의 첫발: 정부가 공장 데이터를 모은다',
     date: '2026.08.14',
