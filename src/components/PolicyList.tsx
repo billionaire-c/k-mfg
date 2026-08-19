@@ -3,6 +3,7 @@ import type {
   PolicySample,
   PolicyStatus,
 } from '../data/policySamples'
+import { resolvePolicyStatus } from '../data/policySamples'
 
 type PolicyListProps = {
   items: PolicySample[]
@@ -56,16 +57,18 @@ export function PolicyList({ items }: PolicyListProps) {
 
   return (
     <ul className="divide-y divide-line border-y border-line">
-      {items.map((item) => (
+      {items.map((item) => {
+        const liveStatus = resolvePolicyStatus(item)
+        return (
         <li key={item.id} id={item.id} className="py-7">
           <div className="flex flex-wrap items-center gap-2">
             <span
               className={[
                 'border px-2 py-0.5 text-[11px] font-medium tracking-[0.06em]',
-                policyStatusClass[item.status],
+                policyStatusClass[liveStatus],
               ].join(' ')}
             >
-              {item.status}
+              {liveStatus}
             </span>
             <span
               className={[
@@ -117,7 +120,8 @@ export function PolicyList({ items }: PolicyListProps) {
             </span>
           </div>
         </li>
-      ))}
+        )
+      })}
     </ul>
   )
 }

@@ -10,6 +10,7 @@ import {
 } from '../components/PolicyList'
 import {
   policySamples,
+  resolvePolicyStatus,
   type PolicyAgencyGroup,
   type PolicyStatus,
 } from '../data/policySamples'
@@ -49,6 +50,7 @@ export function PolicyPage() {
 
   const items = useMemo(() => {
     return policySamples
+      .map((item) => ({ ...item, status: resolvePolicyStatus(item) }))
       .filter((item) => (status === '전체' ? true : item.status === status))
       .filter((item) =>
         agency === '전체' ? true : item.agencyGroup === agency,
@@ -66,9 +68,31 @@ export function PolicyPage() {
       <h1 className="mb-3 text-2xl font-semibold tracking-tight text-ink md:text-3xl">
         정책·지원사업
       </h1>
-      <p className="mb-6 max-w-xl text-[15px] leading-relaxed text-ink-muted">
+      <p className="mb-3 max-w-xl text-[15px] leading-relaxed text-ink-muted">
         스마트공장·제조 AI 관련 정부·공공 지원사업을 모아 둡니다. 캘린더·타임라인으로
         접수 기간을 한눈에 볼 수 있습니다.
+      </p>
+      <p className="mb-6 max-w-xl text-[13px] leading-relaxed text-ink-faint">
+        중기부 공고는{' '}
+        <a
+          href="https://www.smart-factory.kr/usr/bg/ra/ma/rcrtPbanc"
+          target="_blank"
+          rel="noreferrer"
+          className="underline-offset-2 hover:underline"
+        >
+          모집공고
+        </a>
+        ·
+        <a
+          href="https://www.smart-factory.kr/usr/bg/ba/ma/bsnsPbanc"
+          target="_blank"
+          rel="noreferrer"
+          className="underline-offset-2 hover:underline"
+        >
+          사업공고
+        </a>
+        (smart-factory.kr)를 기준으로, 산업부 등은 기업마당을 참고해 수동
+        큐레이션합니다. 상태는 접수 기간으로 자동 갱신됩니다.
       </p>
 
       <div className="mb-8 flex flex-wrap gap-2">
