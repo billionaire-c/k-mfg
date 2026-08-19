@@ -40,6 +40,21 @@ export function resolvePolicyStatus(
  */
 export const policySamples: PolicySample[] = [
   {
+    id: 'pol-mss-ai-solution-contest-2nd-2026',
+    title: '제2회 제조AI 솔루션 공모전 공고',
+    agency: '중소벤처기업부 · 중소기업기술정보진흥원',
+    agencyGroup: '중기부',
+    period: '2026.07.21 ~ 2026.08.21',
+    startDate: '2026-07-21',
+    endDate: '2026-08-21',
+    status: '모집중',
+    summary:
+      '제조현장에 바로 쓸 수 있는 AI 솔루션을 발굴하는 공급기업 대상 공모전입니다. 스마트제조·스마트서비스 공급기업 Pool 등록 및 역량진단 참여가 필수이며, 스타트업·글로벌 트랙으로 스마트공장 사업관리시스템에서 접수합니다.',
+    url: 'https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?pblancId=PBLN_000000000124558',
+    tags: ['제조AI', '공모전', '공급기업', '중기부'],
+    updatedAt: '2026.08.19',
+  },
+  {
     id: 'pol-keit-ai-factory-rd-2nd-2026',
     title: '2026년 2차 기계장비산업기술개발사업(AI팩토리) 신규지원 대상과제',
     agency: '산업통상부 · 한국산업기술기획평가원',
