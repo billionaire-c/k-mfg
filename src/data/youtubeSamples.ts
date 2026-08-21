@@ -11,6 +11,24 @@ export type YoutubeSample = {
  */
 export const youtubeSamples: YoutubeSample[] = [
   {
+    id: 'yt-kict-tunnel-wall-2026',
+    title: '터널은 어떻게 파면서 벽을 세울까 — 한국건설기술연구원',
+    date: '2026.08.21',
+    embedUrl: 'https://youtube.com/shorts/s-q0ctDZCC8',
+  },
+  {
+    id: 'yt-sknexilis-copper-foil-2026',
+    title: '배터리 속 구리 막은 어떻게 머리카락의 30분의 1이 됐을까 - SK넥실리스',
+    date: '2026.08.21',
+    embedUrl: 'https://youtube.com/shorts/UomIIayr6x8',
+  },
+  {
+    id: 'yt-posco-sinter-fines-2026',
+    title: '철광석을 왜 굽지 않고 가루째 넣을까 - 포스코',
+    date: '2026.08.21',
+    embedUrl: 'https://youtube.com/shorts/HOilvYE4DOE',
+  },
+  {
     id: 'yt-skhynix-us-listing-2026',
     title: '한국 기업은 왜 미국 증시에 갈까 - SK하이닉스',
     date: '2026.08.13',

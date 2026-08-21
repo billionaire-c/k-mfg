@@ -88,6 +88,11 @@ const sitemapGroups: SitemapGroup[] = [
             blurb: 'ISO·IATF·보안·개인정보 인증 안내와 흐름도',
           },
           {
+            to: '/industries',
+            label: '제조업 구분',
+            blurb: 'KSIC 11차 제조업 중분류와 뿌리산업 14대 기술·법령 안내',
+          },
+          {
             to: '/cases',
             label: '사례·벤치마크',
             blurb: '업종별 스마트공장·AX 사례와 숫자·교훈',

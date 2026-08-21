@@ -16,6 +16,7 @@ import { FieldNotesPage } from './pages/FieldNotesPage'
 import { GuestbookPage } from './pages/GuestbookPage'
 import { GlossaryPage } from './pages/GlossaryPage'
 import { HomePage } from './pages/HomePage'
+import { IndustryClassifyPage } from './pages/IndustryClassifyPage'
 import { InsightsPage } from './pages/InsightsPage'
 import { MapPage } from './pages/MapPage'
 import { MaturityPage } from './pages/MaturityPage'
@@ -45,6 +46,7 @@ export default function App() {
                 <Route path="map" element={<MapPage />} />
                 <Route path="policy" element={<PolicyPage />} />
                 <Route path="standards" element={<StandardsPage />} />
+                <Route path="industries" element={<IndustryClassifyPage />} />
                 <Route path="cases" element={<CasesPage />} />
                 <Route path="check" element={<MaturityPage />} />
                 <Route path="roadmap" element={<RoadmapPage />} />
