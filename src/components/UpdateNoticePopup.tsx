@@ -2,7 +2,45 @@ import { useEffect, useId, useState } from 'react'
 import { useLocation } from 'react-router-dom'
 import { updateNotice } from '../data/updateNotice'
 
-const STORAGE_KEY = 'km-update-notice-seen'
+const STORAGE_KEY = 'km-update-notice'
+const SESSION_KEY = 'km-update-notice-session'
+const DAY_MS = 24 * 60 * 60 * 1000
+
+type StoredNotice = {
+  id: string
+  mode: 'snooze'
+  until: number
+}
+
+function readSnooze(): StoredNotice | null {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY)
+    if (!raw) return null
+    return JSON.parse(raw) as StoredNotice
+  } catch {
+    return null
+  }
+}
+
+function isSnoozed(): boolean {
+  const stored = readSnooze()
+  if (!stored || stored.id !== updateNotice.id) return false
+  return stored.mode === 'snooze' && Date.now() < stored.until
+}
+
+function isClosedThisSession(): boolean {
+  try {
+    return sessionStorage.getItem(SESSION_KEY) === updateNotice.id
+  } catch {
+    return false
+  }
+}
+
+function shouldShow(): boolean {
+  if (isSnoozed()) return false
+  if (isClosedThisSession()) return false
+  return true
+}
 
 export function UpdateNoticePopup() {
   const location = useLocation()
@@ -14,18 +52,29 @@ export function UpdateNoticePopup() {
       setOpen(false)
       return
     }
-
-    try {
-      const seen = localStorage.getItem(STORAGE_KEY)
-      setOpen(seen !== updateNotice.id)
-    } catch {
-      setOpen(true)
-    }
+    setOpen(shouldShow())
   }, [location.pathname])
 
-  function dismiss() {
+  function closeOnly() {
     try {
-      localStorage.setItem(STORAGE_KEY, updateNotice.id)
+      sessionStorage.setItem(SESSION_KEY, updateNotice.id)
+    } catch {
+      // ignore
+    }
+    setOpen(false)
+  }
+
+  function snoozeOneDay() {
+    try {
+      localStorage.setItem(
+        STORAGE_KEY,
+        JSON.stringify({
+          id: updateNotice.id,
+          mode: 'snooze',
+          until: Date.now() + DAY_MS,
+        } satisfies StoredNotice),
+      )
+      sessionStorage.setItem(SESSION_KEY, updateNotice.id)
     } catch {
       // ignore
     }
@@ -38,7 +87,7 @@ export function UpdateNoticePopup() {
     <div
       className="fixed inset-0 z-50 flex items-center justify-center bg-ink/40 p-5 backdrop-blur-[2px]"
       role="presentation"
-      onClick={dismiss}
+      onClick={closeOnly}
     >
       <div
         role="dialog"
@@ -68,13 +117,22 @@ export function UpdateNoticePopup() {
             </li>
           ))}
         </ul>
-        <button
-          type="button"
-          onClick={dismiss}
-          className="mt-6 w-full border border-ink bg-ink px-4 py-2.5 text-[13px] font-medium text-paper transition hover:opacity-90"
-        >
-          확인
-        </button>
+        <div className="mt-6 flex flex-col gap-2 sm:flex-row">
+          <button
+            type="button"
+            onClick={closeOnly}
+            className="flex-1 border border-line bg-paper px-4 py-2.5 text-[13px] font-medium text-ink transition hover:bg-surface"
+          >
+            닫기
+          </button>
+          <button
+            type="button"
+            onClick={snoozeOneDay}
+            className="flex-1 border border-ink bg-ink px-4 py-2.5 text-[13px] font-medium text-paper transition hover:opacity-90"
+          >
+            하루 동안 열지 않기
+          </button>
+        </div>
       </div>
     </div>
   )
