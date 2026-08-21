@@ -1,6 +1,7 @@
 /**
  * 방문 팝업 — 배포할 때마다 `id`를 바꾸고 updates를 갱신하세요.
  * id가 바뀌면 이미 닫은 사용자에게도 다시 표시됩니다.
+ * updates에는 신규 페이지·콘텐츠·기능만 적고, UI/UX 미세 조정은 넣지 않습니다.
  */
 export const updateNotice = {
   id: '2026-08-21-industries-youtube',
@@ -9,6 +10,5 @@ export const updateNotice = {
   updates: [
     '제조업 구분 페이지 추가 — 뿌리산업 · KSIC 11차 중분류',
     '유튜브 숏폼 3편 추가 — 한국건설기술연구원 · SK넥실리스 · 포스코',
-    '뿌리산업 기술 박스 색 구분 · KSIC 목록 2열 배치',
   ],
 }
