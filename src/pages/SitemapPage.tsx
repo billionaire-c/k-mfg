@@ -73,6 +73,11 @@ const sitemapGroups: SitemapGroup[] = [
         description: '현황·정책·기준·사례를 찾아보기',
         entries: [
           {
+            to: '/smart-factory',
+            label: '스마트공장 소개',
+            blurb: '정의·적용 범위·수준 단계·5대 요건 안내',
+          },
+          {
             to: '/map',
             label: '지도',
             blurb: '공급기업·산업단지 현황을 탭으로 나눠 지도에서 검색',

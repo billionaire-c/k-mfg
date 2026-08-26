@@ -12,6 +12,11 @@ import { youtubeSamples } from '../data/youtubeSamples'
 
 const smartShortcuts = [
   {
+    to: '/smart-factory',
+    label: '스마트공장 소개',
+    blurb: '정의 · 수준 단계',
+  },
+  {
     to: '/map',
     label: '제조 지도',
     blurb: '공급기업 · 산업단지',
@@ -128,24 +133,28 @@ export function HomePage() {
           현황을 보고, 진단하고, 사례와 로드맵으로 이어가세요.
         </p>
         <ul className="grid gap-0 border-y border-line sm:grid-cols-2">
-          {smartShortcuts.map((item, index) => (
-            <li
-              key={item.to}
-              className={[
-                'border-line',
-                index % 2 === 0 ? 'sm:border-r' : '',
-                index < 2 ? 'border-b' : '',
-              ].join(' ')}
-            >
-              <Link
-                to={item.to}
-                className="block px-4 py-4 transition-colors hover:bg-surface"
+          {smartShortcuts.map((item, index) => {
+            const lastRowStart =
+              smartShortcuts.length - (smartShortcuts.length % 2 === 0 ? 2 : 1)
+            return (
+              <li
+                key={item.to}
+                className={[
+                  'border-line',
+                  index % 2 === 0 ? 'sm:border-r' : '',
+                  index < lastRowStart ? 'border-b' : '',
+                ].join(' ')}
               >
-                <p className="text-[14px] font-medium text-ink">{item.label}</p>
-                <p className="mt-1 text-[12px] text-ink-muted">{item.blurb}</p>
-              </Link>
-            </li>
-          ))}
+                <Link
+                  to={item.to}
+                  className="block px-4 py-4 transition-colors hover:bg-surface"
+                >
+                  <p className="text-[14px] font-medium text-ink">{item.label}</p>
+                  <p className="mt-1 text-[12px] text-ink-muted">{item.blurb}</p>
+                </Link>
+              </li>
+            )
+          })}
         </ul>
         <div className="mt-5 flex flex-wrap gap-x-4 gap-y-2 text-[13px]">
           <Link

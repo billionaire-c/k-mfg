@@ -4,11 +4,10 @@
  * updates에는 신규 페이지·콘텐츠·기능만 적고, UI/UX 미세 조정은 넣지 않습니다.
  */
 export const updateNotice = {
-  id: '2026-08-21-industries-youtube',
-  date: '2026.08.21',
+  id: '2026-08-26-smart-factory-intro',
+  date: '2026.08.26',
   greeting: '안녕하세요. K-Manufacturing에 오신 것을 환영합니다.',
   updates: [
-    '제조업 구분 페이지 추가 — 뿌리산업 · KSIC 11차 중분류',
-    '유튜브 숏폼 3편 추가 — 한국건설기술연구원 · SK넥실리스 · 포스코',
+    '스마트공장 소개 페이지 추가 — 정의·수준 단계·5대 요건',
   ],
 }

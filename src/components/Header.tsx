@@ -48,6 +48,7 @@ const navItems: NavItem[] = [
       {
         title: '탐색',
         children: [
+          { to: '/smart-factory', label: '소개' },
           { to: '/map', label: '지도' },
           { to: '/policy', label: '지원사업' },
           { to: '/standards', label: '표준·인증' },

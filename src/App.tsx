@@ -24,6 +24,7 @@ import { PolicyPage } from './pages/PolicyPage'
 import { RoadmapPage } from './pages/RoadmapPage'
 import { SearchPage } from './pages/SearchPage'
 import { SitemapPage } from './pages/SitemapPage'
+import { SmartFactoryIntroPage } from './pages/SmartFactoryIntroPage'
 import { StandardsPage } from './pages/StandardsPage'
 import { YoutubePage } from './pages/YoutubePage'
 
@@ -43,6 +44,7 @@ export default function App() {
                 <Route path="notes" element={<FieldNotesPage />} />
                 <Route path="notes/:id" element={<FieldNoteDetailPage />} />
                 <Route path="youtube" element={<YoutubePage />} />
+                <Route path="smart-factory" element={<SmartFactoryIntroPage />} />
                 <Route path="map" element={<MapPage />} />
                 <Route path="policy" element={<PolicyPage />} />
                 <Route path="standards" element={<StandardsPage />} />
