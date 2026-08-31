@@ -4,10 +4,11 @@
  * updates에는 신규 페이지·콘텐츠·기능만 적고, UI/UX 미세 조정은 넣지 않습니다.
  */
 export const updateNotice = {
-  id: '2026-08-26-smart-factory-intro',
-  date: '2026.08.26',
+  id: '2026-08-31-standards-haccp',
+  date: '2026.08.31',
   greeting: '안녕하세요. K-Manufacturing에 오신 것을 환영합니다.',
   updates: [
-    '스마트공장 소개 페이지 추가 — 정의·수준 단계·5대 요건',
+    '표준·인증에 스마트공장 표준지도 · OPC UA 적용 흐름 추가',
+    '스마트HACCP 페이지 추가 — 소개와 식품 인증업체 현황',
   ],
 }

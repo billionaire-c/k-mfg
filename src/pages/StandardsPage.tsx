@@ -1,5 +1,7 @@
 import { useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { OpcUaApplyFlow } from '../components/OpcUaApplyFlow'
+import { SmartFactoryStandardMap } from '../components/SmartFactoryStandardMap'
 import { StandardsFlow } from '../components/StandardsFlow'
 import { StandardsMindMap } from '../components/StandardsMindMap'
 import {
@@ -55,6 +57,14 @@ export function StandardsPage() {
           activeBranchId={branchId}
           onSelectBranch={selectBranch}
         />
+      </section>
+
+      <section className="mt-8">
+        <SmartFactoryStandardMap />
+      </section>
+
+      <section className="mt-8">
+        <OpcUaApplyFlow />
       </section>
 
       <section className="mt-8">

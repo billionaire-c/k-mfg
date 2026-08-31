@@ -93,6 +93,11 @@ const sitemapGroups: SitemapGroup[] = [
             blurb: 'ISO·IATF·보안·개인정보 인증 안내와 흐름도',
           },
           {
+            to: '/smart-haccp',
+            label: '스마트HACCP',
+            blurb: '소개와 식품 스마트HACCP 인증업체 현황',
+          },
+          {
             to: '/industries',
             label: '제조업 구분',
             blurb: 'KSIC 11차 제조업 중분류와 뿌리산업 14대 기술·법령 안내',
