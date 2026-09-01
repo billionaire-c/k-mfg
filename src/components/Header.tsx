@@ -52,6 +52,7 @@ const navItems: NavItem[] = [
           { to: '/map', label: '지도' },
           { to: '/policy', label: '지원사업' },
           { to: '/standards', label: '표준·인증' },
+          { to: '/ot-security', label: 'OT 보안' },
           { to: '/smart-haccp', label: '스마트HACCP' },
           { to: '/industries', label: '제조업 구분' },
           { to: '/cases', label: '사례' },

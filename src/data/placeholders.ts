@@ -30,6 +30,24 @@ export const site = {
 
 export const cardNewsPreview: PreviewItem[] = [
   {
+    id: 'cn-ot-cyber-resilience-2026',
+    title: '디지털화가 커질수록, 보안이 먼저다',
+    date: '2026.09.01',
+    summary: '제조 디지털 전환의 최대 장애로 사이버보안이 꼽히는 흐름 요약',
+  },
+  {
+    id: 'cn-modbus-ot-zone-2026',
+    title: 'Modbus를 바꾸지 않고 OT 보안 적용하기',
+    date: '2026.09.01',
+    summary: '레거시 프로토콜은 Zone·Conduit으로 가두는 현장 적용 요약',
+  },
+  {
+    id: 'cn-ot-talent-gap-2026',
+    title: 'OT 보안, 장비가 아니라 사람이 비어 있다',
+    date: '2026.09.01',
+    summary: '중소 현장 OT 인력 공백과 운영 절차 우선 대응 요약',
+  },
+  {
     id: 'cn-physical-ai-data-2026',
     title: '피지컬 AI의 첫발: 정부가 공장 데이터를 모은다',
     date: '2026.08.14',

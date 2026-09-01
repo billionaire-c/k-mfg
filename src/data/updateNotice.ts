@@ -4,11 +4,11 @@
  * updates에는 신규 페이지·콘텐츠·기능만 적고, UI/UX 미세 조정은 넣지 않습니다.
  */
 export const updateNotice = {
-  id: '2026-08-31-standards-haccp',
-  date: '2026.08.31',
+  id: '2026-09-01-card-news-ot',
+  date: '2026.09.01',
   greeting: '안녕하세요. K-Manufacturing에 오신 것을 환영합니다.',
   updates: [
-    '표준·인증에 스마트공장 표준지도 · OPC UA 적용 흐름 추가',
-    '스마트HACCP 페이지 추가 — 소개와 식품 인증업체 현황',
+    '9월 카드뉴스 3편 — OT 사이버복원력 · Modbus Zone · OT 인력 공백',
+    'OT 보안 페이지 추가 — 개념·레거시 프로토콜·현장 대응 작업',
   ],
 }

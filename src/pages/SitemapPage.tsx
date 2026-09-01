@@ -93,6 +93,11 @@ const sitemapGroups: SitemapGroup[] = [
             blurb: 'ISO·IATF·보안·개인정보 인증 안내와 흐름도',
           },
           {
+            to: '/ot-security',
+            label: 'OT 보안',
+            blurb: '레거시 프로토콜·IEC 62443·현장 대응 작업 안내',
+          },
+          {
             to: '/smart-haccp',
             label: '스마트HACCP',
             blurb: '소개와 식품 스마트HACCP 인증업체 현황',

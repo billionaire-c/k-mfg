@@ -50,6 +50,164 @@ export type CardNewsSample = {
  */
 export const cardNewsSamples: CardNewsSample[] = [
   {
+    id: 'cn-ot-cyber-resilience-2026',
+    title: '디지털화가 커질수록, 보안이 먼저다',
+    date: '2026.09.01',
+    summary:
+      '제조기업 다수가 2년 내 완전 디지털화를 목표로 하지만, 전환의 최대 장애로 사이버보안이 꼽힙니다. OT 사고의 진짜 비용은 포렌식보다 라인 정지입니다.',
+    topic: 'OT · 사이버복원력',
+    issue: '09월-01',
+    cover: '/card-news/cn-ot-cyber-resilience-2026.png',
+    sources: [
+      {
+        name: 'ZDNet — 카스퍼스키 제조 사이버복원력',
+        url: 'https://zdnet.co.kr/view/?no=20260831102956',
+      },
+      {
+        name: 'K-Manufacturing OT 보안',
+        url: '/ot-security',
+      },
+    ],
+    slides: [
+      {
+        layout: 'cover',
+        eyebrow: '09월-01',
+        title: '디지털 전환의\n첫 장애물',
+        body: 'OT · 사이버복원력',
+        image: '/card-news/cn-ot-cyber-resilience-2026.png',
+      },
+      {
+        layout: 'text',
+        eyebrow: '숫자',
+        title: '목표는 디지털,\n걸림돌은 보안',
+        body: '완전 디지털화 예정 기업은 늘고\n보안 우려가 전환을 붙잡습니다.',
+        metrics: [
+          { label: '2년 내 목표', value: '60%', tone: 'up', arrow: 'up' },
+          { label: '장애 1위', value: '보안', tone: 'warn', arrow: 'right' },
+        ],
+      },
+      {
+        layout: 'split',
+        eyebrow: '현장',
+        title: '사고 비용은\n가동 정지',
+        body: '평균 중단 시간은 십수 시간대.\n벌금·납기 지연이 포렌식보다 큽니다.',
+        image: '/card-news/slide-factory-line.png',
+        highlight: '복원력 KPI = 복구 시간 · 백업 신뢰 · 레거시 범위',
+      },
+      {
+        layout: 'text',
+        eyebrow: '시사점',
+        title: '보안을 IT 규정\n밖으로 꺼내기',
+        body: '생산·엔지니어링·품질 일상 업무에\nOT 보안을 같이 넣어야 합니다.',
+        highlight: '연결만 늘리고 Zone이 없으면 리스크도 같이 커집니다.',
+      },
+    ],
+  },
+  {
+    id: 'cn-modbus-ot-zone-2026',
+    title: 'Modbus를 바꾸지 않고 OT 보안 적용하기',
+    date: '2026.09.01',
+    summary:
+      '인증·암호화가 없는 레거시 프로토콜은 ‘패치’로 고치지 않습니다. PLC는 두고 Modbus Zone을 가둔 뒤 통로만 통제하는 As-Is→To-Be를 짧게 정리했습니다.',
+    topic: 'OT · Modbus',
+    issue: '09월-02',
+    cover: '/card-news/cn-modbus-ot-zone-2026.png',
+    sources: [
+      {
+        name: 'K-Manufacturing OT 보안 — Modbus 예시',
+        url: '/ot-security',
+      },
+    ],
+    slides: [
+      {
+        layout: 'cover',
+        eyebrow: '09월-02',
+        title: '프로토콜 전에\n경계부터',
+        body: 'Modbus · Zone First',
+        image: '/card-news/cn-modbus-ot-zone-2026.png',
+      },
+      {
+        layout: 'text',
+        eyebrow: 'As-Is',
+        title: '평평한 한 망',
+        body: '사무·VPN·HMI·PLC가 섞이면\n도달하는 순간 제어가 가능합니다.',
+        metrics: [
+          { label: '인증', value: '없음', tone: 'warn' },
+          { label: '암호화', value: '없음', tone: 'warn' },
+        ],
+      },
+      {
+        layout: 'split',
+        eyebrow: 'To-Be',
+        title: 'Zone에 가두고\nConduit만 열기',
+        body: '산업용 방화벽·게이트웨이·점프호스트로\n통로를 줄입니다.',
+        image: '/card-news/slide-control-room.png',
+        highlight: '안쪽은 Modbus 유지 · 바깥은 통제된 통신',
+      },
+      {
+        layout: 'text',
+        eyebrow: '순서',
+        title: '그림 → 경계 →\n가시화 → 원격',
+        body: '설비 교체보다 자산 목록과\n원격·계정 정리가 ROI가 큽니다.',
+        highlight: 'OT 보안 페이지에서 As-Is / To-Be 구성도를 확인하세요.',
+      },
+    ],
+  },
+  {
+    id: 'cn-ot-talent-gap-2026',
+    title: 'OT 보안, 장비가 아니라 사람이 비어 있다',
+    date: '2026.09.01',
+    summary:
+      '중소 제조의 정보화 조직은 극소수이고 OT 전담은 더 드뭅니다. 솔루션 도입만으로는 안 끝나는 인력·운영 공백을 현장 언어로 정리했습니다.',
+    topic: 'OT · 인력',
+    issue: '09월-03',
+    cover: '/card-news/cn-ot-talent-gap-2026.png',
+    sources: [
+      {
+        name: '테크월드 — 스마트팩토리 보안·인력',
+        url: 'https://www.epnc.co.kr/news/articleView.html?idxno=402442',
+      },
+      {
+        name: 'K-Manufacturing OT 보안',
+        url: '/ot-security',
+      },
+    ],
+    slides: [
+      {
+        layout: 'cover',
+        eyebrow: '09월-03',
+        title: '솔루션 다음에\n비는 자리',
+        body: 'OT · Talent Gap',
+        image: '/card-news/cn-ot-talent-gap-2026.png',
+      },
+      {
+        layout: 'text',
+        eyebrow: '현실',
+        title: '정보화 조직이\n거의 없다',
+        body: '중소 현장은 IT 겸직·외주 원격으로\nOT 보안을 버티는 경우가 많습니다.',
+        metrics: [
+          { label: '조직', value: '희소', tone: 'warn' },
+          { label: '전담', value: '공백', tone: 'down', arrow: 'down' },
+        ],
+      },
+      {
+        layout: 'split',
+        eyebrow: '대응',
+        title: '사람 대신\n절차를 먼저',
+        body: '승인 원격 · 공용 계정 폐지 ·\n백업·사고 플레이북부터.',
+        image: '/card-news/slide-data-panel.png',
+        highlight: '고비용 전문가 채용 전에 운영 루틴을 고정합니다.',
+      },
+      {
+        layout: 'text',
+        eyebrow: '시사점',
+        title: 'IT와 OT가\n같은 테이블에',
+        body: '가동 제약을 IT가 이해하고\n피싱·악성코드를 OT가 이해해야 합니다.',
+        highlight: '합동 테이블탑 한 번이 장비 한 대보다 쌀 수 있습니다.',
+      },
+    ],
+  },
+  {
     id: 'cn-ess-ai-datacenter-2026',
     title: 'AI 데이터센터가 당긴 ESS: 배터리 공장의 새 주문',
     date: '2026.08.18',

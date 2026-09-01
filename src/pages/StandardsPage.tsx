@@ -177,6 +177,11 @@ export function StandardsPage() {
         <h2 className="text-[14px] font-semibold text-ink">이어서 보기</h2>
         <ul className="mt-3 flex flex-wrap gap-3 text-[13px]">
           <li>
+            <Link to="/ot-security" className="text-ink-muted hover:text-accent">
+              OT 보안 »
+            </Link>
+          </li>
+          <li>
             <Link to="/check" className="text-ink-muted hover:text-accent">
               성숙도 체크 »
             </Link>

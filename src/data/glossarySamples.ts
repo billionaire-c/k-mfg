@@ -752,8 +752,24 @@ export const glossarySamples: GlossarySample[] = [
     term: 'OT Security',
     termKo: 'OT 보안',
     summary:
-      '공장 제어망·설비를 대상으로 한 보안입니다. IT 보안과 달리 가동 중단·안전이 최우선입니다.',
+      '공장 제어망·설비를 대상으로 한 보안입니다. IT와 달리 안전·가동이 최우선이며, Modbus 등 레거시 프로토콜은 인증·암호화가 없는 경우가 많아 Zone/Conduit(IEC 62443) 설계로 보완합니다. 사이트 OT 보안 페이지에서 작업 항목을 정리했습니다.',
     tags: ['시스템', '개념'],
+  },
+  {
+    id: 'gl-iec-62443',
+    term: 'IEC 62443',
+    termKo: '산업제어시스템 보안 표준',
+    summary:
+      'ISA/IEC 62443. 산업 자동화·제어시스템(IACS) 보안 국제 표준입니다. Zone(구역)·Conduit(통로)·보안 수준(SL)으로 OT 네트워크를 설계할 때 기준이 됩니다.',
+    tags: ['시스템', '표준'],
+  },
+  {
+    id: 'gl-modbus',
+    term: 'Modbus',
+    termKo: '모드버스',
+    summary:
+      '산업 현장에서 널리 쓰이는 통신 프로토콜입니다. 폐쇄망·시리얼을 전제로 설계되어 인증·암호화가 거의 없습니다. OT 보안에서는 프로토콜 교체보다 구역 분리·게이트웨이로 가두는 전략이 흔합니다.',
+    tags: ['설비제어', '시스템'],
   },
   {
     id: 'gl-energy-management',

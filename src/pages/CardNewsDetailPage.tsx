@@ -55,11 +55,11 @@ export function CardNewsDetailPage() {
           >
             <div className="min-h-0 flex-1 overflow-hidden">
               {layout === 'cover' && slide.image ? (
-                <div className="relative h-full bg-[#d0d4d4]">
+                <div className="relative h-full bg-white">
                   <img
                     src={slide.image}
                     alt=""
-                    className="absolute inset-0 h-full w-full object-cover"
+                    className="absolute inset-0 h-full w-full object-contain"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent" />
                   <div className="absolute inset-x-0 bottom-0 p-6 text-white md:p-8">
@@ -206,7 +206,7 @@ export function CardNewsDetailPage() {
 
         <aside className="space-y-6 border-t border-[#e7eaf0] pt-6 md:border-t-0 md:border-l md:pt-0 md:pl-8">
           <div className="overflow-hidden border border-[#e7eaf0]">
-            <img src={sample.cover} alt="" className="aspect-[3/4] w-full object-cover" />
+            <img src={sample.cover} alt="" className="aspect-[3/4] w-full bg-white object-contain" />
           </div>
           <div>
             <p className="mb-2 text-[11px] tracking-[0.16em] text-[#939393] uppercase">
