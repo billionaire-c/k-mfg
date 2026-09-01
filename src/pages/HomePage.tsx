@@ -33,7 +33,7 @@ const smartShortcuts = [
   },
   {
     to: '/roadmap',
-    label: '도입 로드맵',
+    label: '구축 로드맵',
     blurb: '12주 실행 순서',
   },
 ] as const

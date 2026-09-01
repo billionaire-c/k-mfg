@@ -123,7 +123,7 @@ export function CasesPage() {
 
       <div className="mt-10 flex flex-wrap gap-4 text-[13px]">
         <Link to="/roadmap" className="text-ink-muted hover:text-accent">
-          도입 로드맵 »
+          구축 로드맵 »
         </Link>
         <Link to="/check" className="text-ink-muted hover:text-accent">
           성숙도 체크 »

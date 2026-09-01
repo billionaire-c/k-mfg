@@ -4,11 +4,11 @@
  * updates에는 신규 페이지·콘텐츠·기능만 적고, UI/UX 미세 조정은 넣지 않습니다.
  */
 export const updateNotice = {
-  id: '2026-09-01-card-news-ot',
+  id: '2026-09-01-roadmap-graph-all',
   date: '2026.09.01',
   greeting: '안녕하세요. K-Manufacturing에 오신 것을 환영합니다.',
   updates: [
-    '9월 카드뉴스 3편 — OT 사이버복원력 · Modbus Zone · OT 인력 공백',
-    'OT 보안 페이지 추가 — 개념·레거시 프로토콜·현장 대응 작업',
+    '구축 로드맵 Phase 그래프 — 전 업종·수준별 적용',
+    '업종별 참조모델 요약 · 스마트 공장 메뉴 정리',
   ],
 }

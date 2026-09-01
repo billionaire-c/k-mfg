@@ -77,7 +77,7 @@ export function MaturityPage() {
         </div>
 
         <section className="mt-8 border border-line bg-surface/50 px-5 py-5">
-          <h3 className="text-[14px] font-semibold text-ink">다음: 도입 로드맵</h3>
+          <h3 className="text-[14px] font-semibold text-ink">다음: 구축 로드맵</h3>
           <p className="mt-2 text-[14px] leading-relaxed text-ink-muted">
             진단 단계에 맞춘 12주 실행 순서와 표준·지원·사례 링크를 모아 두었습니다.
           </p>
@@ -85,7 +85,7 @@ export function MaturityPage() {
             to={`/roadmap?level=${level.id}`}
             className="mt-4 inline-flex border border-ink bg-ink px-4 py-2 text-[13px] font-medium text-paper transition hover:opacity-90"
           >
-            내 도입 로드맵 보기 »
+            내 구축 로드맵 보기 »
           </Link>
         </section>
 

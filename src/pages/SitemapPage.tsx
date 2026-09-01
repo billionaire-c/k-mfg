@@ -65,12 +65,12 @@ const sitemapGroups: SitemapGroup[] = [
   {
     id: 'smart',
     title: '스마트 공장',
-    description: '진단·탐색·실행을 돕는 도구형 메뉴',
+    description: '진단·구축·기준·현황을 돕는 도구형 메뉴',
     subgroups: [
       {
-        id: 'explore',
-        title: '탐색',
-        description: '현황·정책·기준·사례를 찾아보기',
+        id: 'understand',
+        title: '이해하기',
+        description: '개념·업종 모델·산업 분류',
         entries: [
           {
             to: '/smart-factory',
@@ -78,15 +78,39 @@ const sitemapGroups: SitemapGroup[] = [
             blurb: '정의·적용 범위·수준 단계·5대 요건 안내',
           },
           {
-            to: '/map',
-            label: '지도',
-            blurb: '공급기업·산업단지 현황을 탭으로 나눠 지도에서 검색',
+            to: '/reference-model',
+            label: '업종별 참조모델',
+            blurb: '추진단 참조모델 요약 · 업종·수준별 구축 포인트',
           },
           {
-            to: '/policy',
-            label: '지원사업',
-            blurb: '중기부·산업부 등 정책·공고 큐레이션',
+            to: '/industries',
+            label: '제조업 구분',
+            blurb: 'KSIC 11차 제조업 중분류와 뿌리산업 14대 기술·법령 안내',
           },
+        ],
+      },
+      {
+        id: 'build',
+        title: '진단·구축',
+        description: '진단하고 구축 순서를 잡기',
+        entries: [
+          {
+            to: '/check',
+            label: '성숙도 체크',
+            blurb: '스마트공장 준비도를 간단히 자가진단',
+          },
+          {
+            to: '/roadmap',
+            label: '구축 로드맵',
+            blurb: '업종·수준에 맞춘 12주 일반 구축 경로',
+          },
+        ],
+      },
+      {
+        id: 'standards',
+        title: '기준·보안',
+        description: '인증·보안·식품 특화',
+        entries: [
           {
             to: '/standards',
             label: '표준·인증',
@@ -102,32 +126,27 @@ const sitemapGroups: SitemapGroup[] = [
             label: '스마트HACCP',
             blurb: '소개와 식품 스마트HACCP 인증업체 현황',
           },
+        ],
+      },
+      {
+        id: 'field',
+        title: '현황·지원',
+        description: '지도·정책·사례',
+        entries: [
           {
-            to: '/industries',
-            label: '제조업 구분',
-            blurb: 'KSIC 11차 제조업 중분류와 뿌리산업 14대 기술·법령 안내',
+            to: '/map',
+            label: '지도',
+            blurb: '공급기업·산업단지 현황을 탭으로 나눠 지도에서 검색',
+          },
+          {
+            to: '/policy',
+            label: '지원사업',
+            blurb: '중기부·산업부 등 정책·공고 큐레이션',
           },
           {
             to: '/cases',
             label: '사례·벤치마크',
             blurb: '업종별 스마트공장·AX 사례와 숫자·교훈',
-          },
-        ],
-      },
-      {
-        id: 'act',
-        title: '실행',
-        description: '진단하고 다음 단계를 잡기',
-        entries: [
-          {
-            to: '/check',
-            label: '성숙도 체크',
-            blurb: '스마트공장 준비도를 간단히 자가진단',
-          },
-          {
-            to: '/roadmap',
-            label: '도입 로드맵',
-            blurb: '진단 결과에 맞춘 12주 실행 순서',
           },
         ],
       },

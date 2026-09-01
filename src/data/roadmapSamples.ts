@@ -1,5 +1,12 @@
 import type { MaturityLevel } from './maturityCheck'
 import { maturityLevels } from './maturityCheck'
+import {
+  getIndustryLevel,
+  getReferenceIndustry,
+  maturityToRefLevel,
+  referenceIndustries,
+  type RefLevelId,
+} from './referenceModelSamples'
 
 export type RoadmapPhase = {
   id: string
@@ -8,6 +15,8 @@ export type RoadmapPhase = {
   focus: string
   steps: string[]
   links: { label: string; to: string }[]
+  /** 그래프 노드에 짧게 표시 (없으면 title 축약) */
+  graphLabel?: string
 }
 
 export type RoadmapPlan = {
@@ -19,9 +28,9 @@ export type RoadmapPlan = {
 }
 
 export const roadmapMeta = {
-  title: '도입 로드맵',
+  title: '구축 로드맵',
   subtitle:
-    '성숙도 진단 결과에 맞춰 12주 안팎의 실행 순서를 제안합니다. 표준·지원·사례로 바로 이어집니다.',
+    '업종과 현재 수준(성숙도)에 맞춰 12주 안팎의 일반 구축 순서를 제안합니다. 참조모델·지원·사례로 이어집니다.',
 }
 
 const plans: Record<string, RoadmapPlan> = {
@@ -263,11 +272,79 @@ export function getRoadmapPlan(levelId: string): RoadmapPlan {
   return plans[levelId] ?? plans.L1
 }
 
+/** 업종 참조모델 요약을 기존 12주 골격에 섞은 구축 로드맵 */
+export function getBuildRoadmapPlan(
+  levelId: string,
+  industryId: string,
+): RoadmapPlan {
+  const base = getRoadmapPlan(levelId)
+  const industry = getReferenceIndustry(industryId)
+  const refLevelId = (maturityToRefLevel[levelId] ?? 'basic') as RefLevelId
+  const refLevel = getIndustryLevel(industry, refLevelId)
+
+  const phases = base.phases.map((phase, index) => {
+    if (index === 0) {
+      return {
+        ...phase,
+        focus: `${industry.name} · ${refLevel.label} 구성`,
+        steps: [
+          ...refLevel.buildFocus.slice(0, 2),
+          ...phase.steps.slice(0, 2),
+        ],
+        links: [
+          {
+            label: `참조모델 · ${industry.name}`,
+            to: `/reference-model?industry=${industry.id}&level=${refLevelId}`,
+          },
+          ...phase.links,
+        ],
+      }
+    }
+    if (index === 1) {
+      return {
+        ...phase,
+        focus: `${phase.focus} · 업종 요구사항`,
+        steps: [
+          ...refLevel.requirements.slice(0, 2),
+          ...phase.steps.slice(0, 2),
+        ],
+        links: [
+          {
+            label: '업종별 참조모델',
+            to: `/reference-model?industry=${industry.id}`,
+          },
+          ...phase.links,
+        ],
+      }
+    }
+    return {
+      ...phase,
+      steps: [
+        ...phase.steps.slice(0, 2),
+        `기대 효과 점검: ${refLevel.outcomes[0] ?? '가시화·추적성'}`,
+      ],
+      links: [
+        ...phase.links,
+        { label: 'OT 보안', to: '/ot-security' },
+      ],
+    }
+  })
+
+  return {
+    ...base,
+    headline: `${industry.name} · ${base.headline}`,
+    summary: `${industry.name}(${refLevel.label}) 기준으로 본 일반 경로입니다. ${base.summary}`,
+    phases,
+  }
+}
+
 export function getLevelMeta(levelId: string): MaturityLevel {
   return (
     maturityLevels.find((level) => level.id === levelId) ?? maturityLevels[0]
   )
 }
+
+export { referenceIndustries }
 
 export function saveMaturityResult(result: StoredMaturityResult) {
   if (typeof window === 'undefined') return

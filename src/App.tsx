@@ -22,6 +22,7 @@ import { MapPage } from './pages/MapPage'
 import { MaturityPage } from './pages/MaturityPage'
 import { OtSecurityPage } from './pages/OtSecurityPage'
 import { PolicyPage } from './pages/PolicyPage'
+import { ReferenceModelPage } from './pages/ReferenceModelPage'
 import { RoadmapPage } from './pages/RoadmapPage'
 import { SearchPage } from './pages/SearchPage'
 import { SitemapPage } from './pages/SitemapPage'
@@ -52,6 +53,7 @@ export default function App() {
                 <Route path="policy" element={<PolicyPage />} />
                 <Route path="standards" element={<StandardsPage />} />
                 <Route path="ot-security" element={<OtSecurityPage />} />
+                <Route path="reference-model" element={<ReferenceModelPage />} />
                 <Route path="industries" element={<IndustryClassifyPage />} />
                 <Route path="cases" element={<CasesPage />} />
                 <Route path="check" element={<MaturityPage />} />

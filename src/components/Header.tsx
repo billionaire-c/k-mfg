@@ -46,23 +46,34 @@ const navItems: NavItem[] = [
     label: '스마트 공장',
     sections: [
       {
-        title: '탐색',
+        title: '이해하기',
         children: [
           { to: '/smart-factory', label: '소개' },
-          { to: '/map', label: '지도' },
-          { to: '/policy', label: '지원사업' },
-          { to: '/standards', label: '표준·인증' },
-          { to: '/ot-security', label: 'OT 보안' },
-          { to: '/smart-haccp', label: '스마트HACCP' },
+          { to: '/reference-model', label: '업종별 참조모델' },
           { to: '/industries', label: '제조업 구분' },
-          { to: '/cases', label: '사례' },
         ],
       },
       {
-        title: '실행',
+        title: '진단·구축',
         children: [
           { to: '/check', label: '성숙도 체크' },
-          { to: '/roadmap', label: '도입 로드맵' },
+          { to: '/roadmap', label: '구축 로드맵' },
+        ],
+      },
+      {
+        title: '기준·보안',
+        children: [
+          { to: '/standards', label: '표준·인증' },
+          { to: '/ot-security', label: 'OT 보안' },
+          { to: '/smart-haccp', label: '스마트HACCP' },
+        ],
+      },
+      {
+        title: '현황·지원',
+        children: [
+          { to: '/map', label: '지도' },
+          { to: '/policy', label: '지원사업' },
+          { to: '/cases', label: '사례' },
         ],
       },
     ],

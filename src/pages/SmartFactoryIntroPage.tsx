@@ -279,7 +279,7 @@ export function SmartFactoryIntroPage() {
           </li>
           <li>
             <Link to="/roadmap" className="text-ink transition-colors hover:text-accent">
-              도입 로드맵 »
+              구축 로드맵 »
             </Link>
           </li>
         </ul>
