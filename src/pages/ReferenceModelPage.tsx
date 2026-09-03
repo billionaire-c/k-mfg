@@ -1,7 +1,5 @@
 import { useMemo, useState } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
-import { ContentPhotoStrip } from '../components/ContentPhotoStrip'
-import { contentPhotoStrips } from '../data/contentPhotoStrips'
 import {
   getIndustryLevel,
   getReferenceIndustry,
@@ -65,11 +63,6 @@ export function ReferenceModelPage() {
       <p className="mt-2 text-[12px] text-ink-faint">
         출처 · {referenceModelMeta.sourceName} ({referenceModelMeta.sourceYear})
       </p>
-
-      <ContentPhotoStrip
-        className="mt-8"
-        photos={contentPhotoStrips.referenceModel}
-      />
 
       <section className="mt-12">
         <div className="border border-line bg-ink/[0.045] px-4 py-4 md:px-5 md:py-5 dark:bg-ink/[0.08]">

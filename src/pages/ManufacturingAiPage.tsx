@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { ContentPhotoStrip } from '../components/ContentPhotoStrip'
 import { ManufacturingAiFlow } from '../components/ManufacturingAiFlow'
 import {
   manufacturingAiAlso,
@@ -12,7 +11,6 @@ import {
   type ManufacturingAiCategoryId,
   type ManufacturingAiExample,
 } from '../data/manufacturingAi'
-import { contentPhotoStrips } from '../data/contentPhotoStrips'
 
 export function ManufacturingAiPage() {
   const [tab, setTab] = useState<ManufacturingAiCategoryId>('process')
@@ -34,11 +32,6 @@ export function ManufacturingAiPage() {
       <p className="mt-3 text-[12px] leading-relaxed text-ink-faint">
         {manufacturingAiMeta.disclaimer}
       </p>
-
-      <ContentPhotoStrip
-        className="mt-8"
-        photos={contentPhotoStrips.manufacturingAi}
-      />
 
       <section className="mt-10">
         <h2 className="text-[15px] font-semibold tracking-tight text-ink">

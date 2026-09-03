@@ -1,7 +1,5 @@
 import { Link } from 'react-router-dom'
-import { ContentPhotoStrip } from '../components/ContentPhotoStrip'
 import { YearBarChart } from '../components/YearBarChart'
-import { contentPhotoStrips } from '../data/contentPhotoStrips'
 import {
   smartFactoryYearCharts,
   smartNumberSections,
@@ -34,11 +32,6 @@ export function SmartFactoryNumbersPage() {
       <p className="mt-3 text-[12px] leading-relaxed text-ink-faint">
         {smartNumbersMeta.disclaimer}
       </p>
-
-      <ContentPhotoStrip
-        className="mt-8"
-        photos={contentPhotoStrips.smartNumbers}
-      />
 
       <section className="mt-12">
         <div className="border border-line bg-ink/[0.045] px-4 py-4 md:px-5 md:py-5 dark:bg-ink/[0.08]">
