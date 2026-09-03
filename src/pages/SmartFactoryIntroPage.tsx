@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { ContentPhotoStrip } from '../components/ContentPhotoStrip'
 import {
   smartDomains,
   smartFactoryDefinition,
@@ -10,6 +11,7 @@ import {
   smartRequirements,
   type SmartLevelId,
 } from '../data/smartFactoryIntroSamples'
+import { contentPhotoStrips } from '../data/contentPhotoStrips'
 
 export function SmartFactoryIntroPage() {
   const [hovered, setHovered] = useState<SmartLevelId | null>(null)
@@ -39,6 +41,11 @@ export function SmartFactoryIntroPage() {
           {smartFactoryIntroMeta.sourceName} ↗
         </a>
       </p>
+
+      <ContentPhotoStrip
+        className="mt-8"
+        photos={contentPhotoStrips.smartFactory}
+      />
 
       <section className="mt-12">
         <h2 className="text-xl font-semibold tracking-tight text-ink">

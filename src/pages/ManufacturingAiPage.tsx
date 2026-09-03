@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { ContentPhotoStrip } from '../components/ContentPhotoStrip'
 import { ManufacturingAiFlow } from '../components/ManufacturingAiFlow'
 import {
   manufacturingAiAlso,
@@ -11,6 +12,7 @@ import {
   type ManufacturingAiCategoryId,
   type ManufacturingAiExample,
 } from '../data/manufacturingAi'
+import { contentPhotoStrips } from '../data/contentPhotoStrips'
 
 export function ManufacturingAiPage() {
   const [tab, setTab] = useState<ManufacturingAiCategoryId>('process')
@@ -33,17 +35,10 @@ export function ManufacturingAiPage() {
         {manufacturingAiMeta.disclaimer}
       </p>
 
-      <figure className="mt-8 overflow-hidden border border-line">
-        <img
-          src="/card-news/slide-data-panel.png"
-          alt="제조 현장 데이터 모니터와 라인"
-          className="block h-auto w-full object-cover"
-          style={{ aspectRatio: '16 / 9', objectPosition: 'center' }}
-        />
-        <figcaption className="border-t border-line px-3 py-2 text-[11px] text-ink-faint">
-          센서·모니터 데이터로 공정·품질·설비를 보는 장면 · 카드뉴스 자산
-        </figcaption>
-      </figure>
+      <ContentPhotoStrip
+        className="mt-8"
+        photos={contentPhotoStrips.manufacturingAi}
+      />
 
       <section className="mt-10">
         <h2 className="text-[15px] font-semibold tracking-tight text-ink">

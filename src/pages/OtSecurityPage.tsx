@@ -1,6 +1,8 @@
 import { useState, type ReactNode } from 'react'
 import { Link } from 'react-router-dom'
+import { ContentPhotoStrip } from '../components/ContentPhotoStrip'
 import { ModbusOtArchitecture } from '../components/ModbusOtArchitecture'
+import { contentPhotoStrips } from '../data/contentPhotoStrips'
 import {
   frameworks,
   legacyProtocols,
@@ -48,6 +50,11 @@ export function OtSecurityPage() {
       <p className="mt-3 text-[12px] leading-relaxed text-ink-faint">
         {otSecurityMeta.disclaimer}
       </p>
+
+      <ContentPhotoStrip
+        className="mt-8"
+        photos={contentPhotoStrips.otSecurity}
+      />
 
       <section className="mt-12">
         <SectionStart title={otSecurityIntro.headline}>

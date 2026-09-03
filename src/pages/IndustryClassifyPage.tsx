@@ -1,4 +1,6 @@
 import { useState } from 'react'
+import { ContentPhotoStrip } from '../components/ContentPhotoStrip'
+import { contentPhotoStrips } from '../data/contentPhotoStrips'
 import {
   industryClassifyMeta,
   ksicIntro,
@@ -23,6 +25,11 @@ export function IndustryClassifyPage() {
       <p className="mt-3 max-w-xl text-[15px] leading-relaxed text-ink-muted">
         {industryClassifyMeta.subtitle}
       </p>
+
+      <ContentPhotoStrip
+        className="mt-8"
+        photos={contentPhotoStrips.industries}
+      />
 
       <div
         role="tablist"

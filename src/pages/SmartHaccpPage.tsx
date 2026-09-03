@@ -1,4 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
+import { ContentPhotoStrip } from '../components/ContentPhotoStrip'
+import { contentPhotoStrips } from '../data/contentPhotoStrips'
 import {
   smartHaccpIntro,
   type SmartHaccpCompany,
@@ -104,6 +106,11 @@ export function SmartHaccpPage() {
           {smartHaccpIntro.portalName} ↗
         </a>
       </p>
+
+      <ContentPhotoStrip
+        className="mt-8"
+        photos={contentPhotoStrips.smartHaccp}
+      />
 
       <section className="mt-10">
         <h2 className="text-xl font-semibold tracking-tight text-ink">

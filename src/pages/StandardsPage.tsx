@@ -1,9 +1,11 @@
 import { useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { ContentPhotoStrip } from '../components/ContentPhotoStrip'
 import { OpcUaApplyFlow } from '../components/OpcUaApplyFlow'
 import { SmartFactoryStandardMap } from '../components/SmartFactoryStandardMap'
 import { StandardsFlow } from '../components/StandardsFlow'
 import { StandardsMindMap } from '../components/StandardsMindMap'
+import { contentPhotoStrips } from '../data/contentPhotoStrips'
 import {
   getStandard,
   standardCategories,
@@ -51,6 +53,11 @@ export function StandardsPage() {
       <p className="mt-3 max-w-xl text-[15px] leading-relaxed text-ink-muted">
         {standardsMeta.subtitle}
       </p>
+
+      <ContentPhotoStrip
+        className="mt-8"
+        photos={contentPhotoStrips.standards}
+      />
 
       <section className="mt-10">
         <StandardsMindMap
