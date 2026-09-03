@@ -1,7 +1,6 @@
 import { useState, type ReactNode } from 'react'
 import { Link } from 'react-router-dom'
 import { ModbusOtArchitecture } from '../components/ModbusOtArchitecture'
-import { StickyToc } from '../components/StickyToc'
 import {
   frameworks,
   legacyProtocols,
@@ -15,18 +14,6 @@ import {
   workCategories,
   type WorkCategoryId,
 } from '../data/otSecuritySamples'
-
-const tocItems = [
-  { id: 'ot-intro', label: 'OT란' },
-  { id: 'ot-vs-it', label: 'IT와 차이' },
-  { id: 'ot-why', label: '왜 필요한가' },
-  { id: 'ot-legacy', label: '레거시' },
-  { id: 'ot-frameworks', label: '참고 틀' },
-  { id: 'ot-work', label: '무엇을' },
-  { id: 'ot-roadmap', label: '시작 순서' },
-  { id: 'ot-modbus', label: 'Modbus' },
-  { id: 'ot-more', label: '이어서' },
-]
 
 function SectionStart({
   title,
@@ -62,11 +49,7 @@ export function OtSecurityPage() {
         {otSecurityMeta.disclaimer}
       </p>
 
-      <div className="mt-8">
-        <StickyToc items={tocItems} />
-      </div>
-
-      <section id="ot-intro" className="mt-8 scroll-mt-28">
+      <section className="mt-12">
         <SectionStart title={otSecurityIntro.headline}>
           <div className="space-y-3 text-[14px] leading-relaxed text-ink-muted md:text-[15px]">
             {otSecurityIntro.paragraphs.map((p) => (
@@ -76,7 +59,7 @@ export function OtSecurityPage() {
         </SectionStart>
       </section>
 
-      <section id="ot-vs-it" className="mt-12 scroll-mt-28">
+      <section className="mt-12">
         <SectionStart title={otVsIt.headline} />
         <div className="mt-4 overflow-x-auto border border-line">
           <table className="min-w-[520px] w-full border-collapse text-left text-[12px] md:text-[13px]">
@@ -102,7 +85,7 @@ export function OtSecurityPage() {
         </div>
       </section>
 
-      <section id="ot-why" className="mt-12 scroll-mt-28">
+      <section className="mt-12">
         <SectionStart title={whyNeeded.headline} />
         <ul className="mt-5 space-y-3">
           {whyNeeded.items.map((item, index) => (
@@ -124,7 +107,7 @@ export function OtSecurityPage() {
         </ul>
       </section>
 
-      <section id="ot-legacy" className="mt-12 scroll-mt-28">
+      <section className="mt-12">
         <SectionStart title={legacyProtocols.headline}>
           <p className="text-[14px] leading-relaxed text-ink-muted md:text-[15px]">
             {legacyProtocols.lead}
@@ -146,7 +129,7 @@ export function OtSecurityPage() {
         </p>
       </section>
 
-      <section id="ot-frameworks" className="mt-12 scroll-mt-28">
+      <section className="mt-12">
         <SectionStart title={frameworks.headline} />
         <ul className="mt-4 space-y-3">
           {frameworks.items.map((item) => (
@@ -160,7 +143,7 @@ export function OtSecurityPage() {
         </ul>
       </section>
 
-      <section id="ot-work" className="mt-12 scroll-mt-28">
+      <section className="mt-12">
         <SectionStart title="무엇을 해야 하나">
           <p className="text-[13px] leading-relaxed text-ink-muted">
             하드웨어·솔루션·설계·운영을 나눠 보면, “장비만 사면 된다”는 오해를 줄일 수
@@ -212,7 +195,7 @@ export function OtSecurityPage() {
         </ul>
       </section>
 
-      <section id="ot-roadmap" className="mt-12 scroll-mt-28">
+      <section className="mt-12">
         <SectionStart title={starterRoadmap.headline} />
         <ol className="mt-5 border border-line">
           {starterRoadmap.steps.map((step, index) => (
@@ -237,7 +220,7 @@ export function OtSecurityPage() {
         </ol>
       </section>
 
-      <section id="ot-modbus" className="mt-12 scroll-mt-28">
+      <section className="mt-12">
         <SectionStart title={modbusExample.headline}>
           <p className="text-[14px] leading-relaxed text-ink-muted md:text-[15px]">
             {modbusExample.lead}
@@ -259,10 +242,7 @@ export function OtSecurityPage() {
         </ul>
       </section>
 
-      <section
-        id="ot-more"
-        className="mt-12 scroll-mt-28 border border-line bg-surface/40 px-5 py-5"
-      >
+      <section className="mt-12 border border-line bg-surface/40 px-5 py-5">
         <h2 className="text-[15px] font-semibold text-ink">이어서 보기</h2>
         <ul className="mt-3 flex flex-wrap gap-x-4 gap-y-2 text-[13px]">
           {otSecurityLinks.map((link) => (

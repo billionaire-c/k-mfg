@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { ManufacturingAiFlow } from '../components/ManufacturingAiFlow'
-import { StickyToc } from '../components/StickyToc'
 import {
   manufacturingAiAlso,
   manufacturingAiCategories,
@@ -12,13 +11,6 @@ import {
   type ManufacturingAiCategoryId,
   type ManufacturingAiExample,
 } from '../data/manufacturingAi'
-
-const tocItems = [
-  { id: 'ai-flow', label: '흐름' },
-  { id: 'ai-areas', label: '공정·품질·설비' },
-  { id: 'ai-also', label: '그 밖의 자리' },
-  { id: 'ai-more', label: '이어서' },
-]
 
 export function ManufacturingAiPage() {
   const [tab, setTab] = useState<ManufacturingAiCategoryId>('process')
@@ -41,11 +33,7 @@ export function ManufacturingAiPage() {
         {manufacturingAiMeta.disclaimer}
       </p>
 
-      <div className="mt-8">
-        <StickyToc items={tocItems} />
-      </div>
-
-      <section id="ai-flow" className="mt-8 scroll-mt-28">
+      <section className="mt-10">
         <h2 className="text-[15px] font-semibold tracking-tight text-ink">
           {manufacturingAiFlow.title}
         </h2>
@@ -65,7 +53,7 @@ export function ManufacturingAiPage() {
         </p>
       </section>
 
-      <section id="ai-areas" className="mt-12 scroll-mt-28">
+      <section className="mt-12">
         <div
           role="tablist"
           aria-label="제조 AI 영역"
@@ -108,7 +96,7 @@ export function ManufacturingAiPage() {
         </div>
       </section>
 
-      <section id="ai-also" className="mt-12 scroll-mt-28">
+      <section className="mt-12">
         <div className="border border-line px-4 py-4 md:px-5">
           <h2 className="text-[15px] font-semibold text-ink">
             {manufacturingAiAlso.headline}
@@ -135,10 +123,7 @@ export function ManufacturingAiPage() {
         </div>
       </section>
 
-      <section
-        id="ai-more"
-        className="mt-10 scroll-mt-28 border border-line bg-surface/40 px-5 py-5"
-      >
+      <section className="mt-10 border border-line bg-surface/40 px-5 py-5">
         <h2 className="text-[15px] font-semibold text-ink">이어서 보기</h2>
         <ul className="mt-3 flex flex-wrap gap-x-4 gap-y-2 text-[13px]">
           {manufacturingAiLinks.map((link) => (
