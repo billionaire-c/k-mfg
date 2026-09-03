@@ -4,11 +4,10 @@
  * updates에는 신규 페이지·콘텐츠·기능만 적고, UI/UX 미세 조정은 넣지 않습니다.
  */
 export const updateNotice = {
-  id: '2026-09-01-roadmap-graph-all',
-  date: '2026.09.01',
+  id: '2026-09-02-smart-numbers',
+  date: '2026.09.02',
   greeting: '안녕하세요. K-Manufacturing에 오신 것을 환영합니다.',
   updates: [
-    '구축 로드맵 Phase 그래프 — 전 업종·수준별 적용',
-    '업종별 참조모델 요약 · 스마트 공장 메뉴 정리',
+    '숫자로 보는 스마트공장 — 도입 효과·현황을 증감 숫자로',
   ],
 }

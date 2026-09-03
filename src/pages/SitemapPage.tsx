@@ -78,6 +78,11 @@ const sitemapGroups: SitemapGroup[] = [
             blurb: '정의·적용 범위·수준 단계·5대 요건 안내',
           },
           {
+            to: '/smart-factory-numbers',
+            label: '숫자로 보는 스마트공장',
+            blurb: '도입 효과·현황을 증감 숫자와 한 줄 의미로',
+          },
+          {
             to: '/reference-model',
             label: '업종별 참조모델',
             blurb: '추진단 참조모델 요약 · 업종·수준별 구축 포인트',
