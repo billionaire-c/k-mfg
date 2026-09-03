@@ -35,13 +35,13 @@ export function ManufacturingAiPage() {
 
       <figure className="mt-8 overflow-hidden border border-line">
         <img
-          src="/card-news/slide-factory-line.png"
-          alt="자동화 제조 라인"
+          src="/card-news/slide-data-panel.png"
+          alt="제조 현장 데이터 모니터와 라인"
           className="block h-auto w-full object-cover"
           style={{ aspectRatio: '16 / 9', objectPosition: 'center' }}
         />
         <figcaption className="border-t border-line px-3 py-2 text-[11px] text-ink-faint">
-          제조 현장 이미지 · 카드뉴스 자산 재사용 (테스트)
+          센서·모니터 데이터로 공정·품질·설비를 보는 장면 · 카드뉴스 자산
         </figcaption>
       </figure>
 
