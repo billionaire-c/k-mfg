@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { StickyToc } from '../components/StickyToc'
 import { YearBarChart } from '../components/YearBarChart'
 import {
   smartFactoryYearCharts,
@@ -33,7 +34,20 @@ export function SmartFactoryNumbersPage() {
         {smartNumbersMeta.disclaimer}
       </p>
 
-      <section className="mt-12">
+      <div className="mt-8">
+        <StickyToc
+          items={[
+            { id: 'num-charts', label: '보급 추이' },
+            ...smartNumberSections.map((s) => ({
+              id: `num-${s.id}`,
+              label: s.title.length > 10 ? `${s.title.slice(0, 9)}…` : s.title,
+            })),
+            { id: 'num-more', label: '이어서' },
+          ]}
+        />
+      </div>
+
+      <section id="num-charts" className="mt-8 scroll-mt-28">
         <div className="border border-line bg-ink/[0.045] px-4 py-4 md:px-5 md:py-5 dark:bg-ink/[0.08]">
           <h2 className="text-xl font-semibold tracking-tight text-ink">
             {charts.title}
@@ -84,7 +98,11 @@ export function SmartFactoryNumbersPage() {
       </section>
 
       {smartNumberSections.map((section) => (
-        <section key={section.id} className="mt-12">
+        <section
+          key={section.id}
+          id={`num-${section.id}`}
+          className="mt-12 scroll-mt-28"
+        >
           <div className="border border-line bg-ink/[0.045] px-4 py-4 md:px-5 md:py-5 dark:bg-ink/[0.08]">
             <h2 className="text-xl font-semibold tracking-tight text-ink">
               {section.title}
@@ -104,7 +122,10 @@ export function SmartFactoryNumbersPage() {
         </section>
       ))}
 
-      <section className="mt-12 border border-line bg-surface/40 px-5 py-5">
+      <section
+        id="num-more"
+        className="mt-12 scroll-mt-28 border border-line bg-surface/40 px-5 py-5"
+      >
         <h2 className="text-[15px] font-semibold text-ink">이어서 보기</h2>
         <ul className="mt-3 flex flex-wrap gap-x-4 gap-y-2 text-[13px]">
           {smartNumbersLinks.map((link) => (
