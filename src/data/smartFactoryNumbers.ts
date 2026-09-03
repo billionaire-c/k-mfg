@@ -418,6 +418,7 @@ export const smartNumberSections: {
 ]
 
 export const smartNumbersLinks = [
+  { label: '제조에서 쓰는 AI', to: '/manufacturing-ai' },
   { label: '스마트공장 소개', to: '/smart-factory' },
   { label: '성숙도 체크', to: '/check' },
   { label: '구축 로드맵', to: '/roadmap' },

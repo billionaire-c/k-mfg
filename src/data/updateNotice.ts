@@ -4,10 +4,10 @@
  * updates에는 신규 페이지·콘텐츠·기능만 적고, UI/UX 미세 조정은 넣지 않습니다.
  */
 export const updateNotice = {
-  id: '2026-09-02-smart-numbers',
-  date: '2026.09.02',
+  id: '2026-09-03-manufacturing-ai',
+  date: '2026.09.03',
   greeting: '안녕하세요. K-Manufacturing에 오신 것을 환영합니다.',
   updates: [
-    '숫자로 보는 스마트공장 — 도입 효과·현황을 증감 숫자로',
+    '제조에서 쓰는 AI — 공정·품질·예지보전 기술과 현장 사례',
   ],
 }

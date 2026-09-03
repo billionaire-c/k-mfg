@@ -28,6 +28,7 @@ import { SearchPage } from './pages/SearchPage'
 import { SitemapPage } from './pages/SitemapPage'
 import { SmartFactoryIntroPage } from './pages/SmartFactoryIntroPage'
 import { SmartFactoryNumbersPage } from './pages/SmartFactoryNumbersPage'
+import { ManufacturingAiPage } from './pages/ManufacturingAiPage'
 import { SmartHaccpPage } from './pages/SmartHaccpPage'
 import { StandardsPage } from './pages/StandardsPage'
 import { YoutubePage } from './pages/YoutubePage'
@@ -52,6 +53,10 @@ export default function App() {
                 <Route
                   path="smart-factory-numbers"
                   element={<SmartFactoryNumbersPage />}
+                />
+                <Route
+                  path="manufacturing-ai"
+                  element={<ManufacturingAiPage />}
                 />
                 <Route path="smart-haccp" element={<SmartHaccpPage />} />
                 <Route path="map" element={<MapPage />} />

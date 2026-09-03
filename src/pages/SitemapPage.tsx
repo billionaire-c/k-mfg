@@ -83,6 +83,11 @@ const sitemapGroups: SitemapGroup[] = [
             blurb: '도입 효과·현황을 증감 숫자와 한 줄 의미로',
           },
           {
+            to: '/manufacturing-ai',
+            label: '제조에서 쓰는 AI',
+            blurb: '공정·품질·예지보전별 기술과 현장 사례',
+          },
+          {
             to: '/reference-model',
             label: '업종별 참조모델',
             blurb: '추진단 참조모델 요약 · 업종·수준별 구축 포인트',

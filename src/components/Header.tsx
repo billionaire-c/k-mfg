@@ -50,6 +50,7 @@ const navItems: NavItem[] = [
         children: [
           { to: '/smart-factory', label: '소개' },
           { to: '/smart-factory-numbers', label: '숫자로 보는 스마트공장' },
+          { to: '/manufacturing-ai', label: '제조에서 쓰는 AI' },
           { to: '/reference-model', label: '업종별 참조모델' },
           { to: '/industries', label: '제조업 구분' },
         ],
