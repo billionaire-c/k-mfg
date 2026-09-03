@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { ManufacturingAiFlow } from '../components/ManufacturingAiFlow'
-import { ManufacturingLineScene } from '../components/ManufacturingLineScene'
 import {
   manufacturingAiAlso,
   manufacturingAiCategories,
@@ -33,10 +32,6 @@ export function ManufacturingAiPage() {
       <p className="mt-3 text-[12px] leading-relaxed text-ink-faint">
         {manufacturingAiMeta.disclaimer}
       </p>
-
-      <div className="mt-8">
-        <ManufacturingLineScene />
-      </div>
 
       <section className="mt-10">
         <h2 className="text-[15px] font-semibold tracking-tight text-ink">
